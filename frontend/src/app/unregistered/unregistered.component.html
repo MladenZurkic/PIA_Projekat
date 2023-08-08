@@ -1,0 +1,119 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+      <h2 class="text-center mt-4">VitaCare Clinic: Elevating Healthcare Excellence</h2>
+
+      <div class="row mt-4">
+        <span class='spanDescpription'>Nestled in a serene environment, VitaCare Clinic is a pinnacle of advanced medical care. 
+          With a focus on cutting-edge technology and a team of world-class specialists,
+           the clinic offers a spectrum of tailored services. From cardiovascular health to 
+           neurological advancements and regenerative medicine, VitaCare Clinic embodies innovation, 
+           compassion, and patient well-being. Rooted in a patient-centric approach, the clinic's 
+           commitment to holistic care and community engagement sets it apart as a beacon 
+           of modern healthcare.</span>
+      </div>
+
+
+        <!-- Carousel -->
+        <h2 class="text-center mt-4">Our Clinic</h2>
+        <div id="carouselExampleIndicators" class="carousel slide">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img height="500px" width="400px" src="/../../assets/clinic/clinic2.jpg" class="d-block w-100" alt="clinic2">
+              </div>
+              <div class="carousel-item">
+                <img height="500px" width="400px" src="/../../assets/clinic/clinic1.jpg" class="d-block w-100" alt="clinic1">
+              </div>
+              <div class="carousel-item">
+                <img height="500px" width="400px" src="/../../assets/clinic/clinic3.jpg" class="d-block w-100" alt="clinic3">
+              </div>
+              <div class="carousel-item">
+                <img height="500px" width="400px" src="/../../assets/clinic/clinic4.jpg" class="d-block w-100" alt="clinic4">
+              </div>
+              <div class="carousel-item">
+                <img height="500px" width="400px" src="/../../assets/clinic/clinic5.jpg" class="d-block w-100" alt="clinic5">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      
+
+        <h2 class="text-center mt-4">Our Doctors</h2>
+        <div class="table-responsive mt-4">
+
+        <!-- Search Input Fields and Button -->
+        <div class="search-container mb-3">
+          <br>
+          <div class="input-group">
+            &nbsp;&nbsp;
+            <input type="text" class="form-control" placeholder="Search by Firstname" [(ngModel)]="searchFirstname">
+            <input type="text" class="form-control" placeholder="Search by Lastname" [(ngModel)]="searchLastname">
+            <input type="text" class="form-control" placeholder="Search by Specialization" [(ngModel)]="searchSpecialization">
+            &nbsp;<button (click)="search()" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- Table of Doctors -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Firstname - <button (click)="sortByFirstnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByFirstnameDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Lastname - <button (click)="sortByLastnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByLastnameDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Specialization - <button (click)="sortBySpecializationAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortBySpecializationDesc()" class="buttonInTable">Sort Desc</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctor of allDoctors">
+              <td class="align-middle"><img height="50px" width="50px" src="/../../assets/doctors/{{doctor.imagePath}}" alt="doctor1">{{ doctor.firstname }}</td>
+              <td class="align-middle">{{ doctor.lastname }}</td>
+              <td class="align-middle">{{ doctor.specialization.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>
