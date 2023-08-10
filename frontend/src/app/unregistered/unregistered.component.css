@@ -2,12 +2,11 @@
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Set the container's minimum height to 100% of the viewport */
+    min-height: 100vh;
   }
 
-  /* Push the main content to the top of the container */
   .main {
-    flex: 1; /* Allow the main content to grow and take up available space */
+    flex: 1;
   }
   
   .header {

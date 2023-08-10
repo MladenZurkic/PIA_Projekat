@@ -1,1 +1,84 @@
-<p>register works!</p>
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+      <h1 class="text-center mt-4">Register</h1>
+      <br><br>
+      <div class="login-container">
+        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+          <div class="form-group mb-3">
+            <label for="username" style="font-size: 20px;">Username</label>
+            <input type="text" class="form-control form-control-lg" id="username" placeholder="Enter Username" [(ngModel)]="username" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="password" style="font-size: 20px;">Password</label>
+            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter Password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="confirmPassword" style="font-size: 20px;">Confirm password</label>
+            <input type="password" class="form-control form-control-lg" id="confirmPassword" placeholder="Enter Password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="firstname" style="font-size: 20px;">Firstname</label>
+            <input type="text" class="form-control form-control-lg" id="firstname" placeholder="Enter Firstname" [(ngModel)]="firstname" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="lastname" style="font-size: 20px;">Lastname</label>
+            <input type="text" class="form-control form-control-lg" id="lastname" placeholder="Enter Lastname" [(ngModel)]="lastname" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="address" style="font-size: 20px;">Address</label>
+            <input type="text" class="form-control form-control-lg" id="address" placeholder="Enter Address" [(ngModel)]="address" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="phoneNumber" style="font-size: 20px;">Phone Number</label>
+            <input type="text" class="form-control form-control-lg" id="phoneNumber" placeholder="Enter Phone Number" [(ngModel)]="phoneNumber" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="email" style="font-size: 20px;">Email</label>
+            <input type="text" class="form-control form-control-lg" id="email" placeholder="Enter Email" [(ngModel)]="email" [ngModelOptions]="{standalone:true}">
+          </div>
+
+          <div>
+            <label for="email" style="font-size: 20px;">Profile Picture:</label>
+            <input type="file" id="profilePicture" name="profilePicture" accept=".jpg,.png" (change)="onFileSelected($event)">          
+          </div>
+          <br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg" (click)="register()">Register</button>
+          </div>
+          <br>
+        </form>
+        <div class="message-display" *ngIf="message"><span class="text-danger">{{message}}</span></div>
+        <div class="posivite-message-display" *ngIf="positiveMessage"><span class="text-success">{{positiveMessage}}</span></div>
+        <br><br>
+      </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

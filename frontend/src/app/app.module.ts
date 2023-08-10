@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { PatientComponent } from './patient/patient.component';
 
 
 
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     UnregisteredComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,

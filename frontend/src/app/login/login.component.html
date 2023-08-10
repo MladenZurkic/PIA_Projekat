@@ -1,1 +1,57 @@
-<p>login works!</p>
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+      <h1 class="text-center mt-4">Login</h1>
+      <br><br>
+      <div class="login-container">
+        <form>
+          <div class="form-group mb-3">
+            <label for="username" style="font-size: 20px;">Username</label>
+            <input type="text" class="form-control form-control-lg" id="username" placeholder="Enter username" [(ngModel)]="username" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="form-group mb-3">
+            <label for="password" style="font-size: 20px;">Password</label>
+            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}">
+          </div>
+          <div class="text-center"> <!-- Center the button -->
+            <button type="submit" class="btn btn-primary btn-lg" (click)="login()">Login</button>
+          </div>
+          <br>
+          <div class="text-center">
+            <p>Don't have an account? <a routerLink="/register">Register here!</a></p>
+          </div>
+        </form>
+        <div class="message-display" *ngIf="message"><span class="text-danger">{{message}}</span></div>
+        
+      </div>
+
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

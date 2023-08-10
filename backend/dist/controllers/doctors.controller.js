@@ -20,7 +20,6 @@ class DoctorsController {
             let lastname = req.body.lastname;
             let specialization = req.body.specialization;
             let branch = req.body.branch;
-            console.log(firstname, lastname, specialization, branch);
             doctor_1.default.find({
                 'firstname': { $regex: firstname, $options: 'i' },
                 'lastname': { $regex: lastname, $options: 'i' },
