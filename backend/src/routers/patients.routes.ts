@@ -24,4 +24,8 @@ patientsRouter.route('/register').post(
     (req, res) => new PatientsController().register(req, res)
 );
 
+patientsRouter.route('/getImage').get(
+    (req, res) => new PatientsController().getImage(req, res)
+);
+
 export default patientsRouter;

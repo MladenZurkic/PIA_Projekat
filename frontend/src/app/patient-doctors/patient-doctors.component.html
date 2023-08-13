@@ -1,0 +1,77 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+        <h1 class="text-center mt-4">Hello {{loggedInUser.firstname}}!</h1>
+
+        <h2 class="text-center mt-4">Our Doctors</h2>
+        <div class="table-responsive mt-4">
+
+        <!-- Search Input Fields and Button -->
+        <div class="search-container mb-3">
+          <br>
+          <div class="input-group">
+            &nbsp;&nbsp;
+            <input type="text" class="form-control" placeholder="Search by Firstname" [(ngModel)]="searchFirstname">
+            <input type="text" class="form-control" placeholder="Search by Lastname" [(ngModel)]="searchLastname">
+            <input type="text" class="form-control" placeholder="Search by Specialization" [(ngModel)]="searchSpecialization">
+            <input type="text" class="form-control" placeholder="Search by Branch" [(ngModel)]="searchBranch">
+            &nbsp;<button (click)="search()" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+
+        <br>
+
+        <!-- Table of Doctors -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Firstname - <button (click)="sortByFirstnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByFirstnameDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Lastname - <button (click)="sortByLastnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByLastnameDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Specialization - <button (click)="sortBySpecializationAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortBySpecializationDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Branch - <button (click)="sortByBranchAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByBranchDesc()" class="buttonInTable">Sort Desc</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let doctor of allDoctors">
+
+                <td class="align-middle"><a routerLink="/patient/doctor/{{doctor.username}}"><img height="50px" width="50px" src="{{getSelectedFileUrl(doctor.username)}}" alt="doctorImg">{{ doctor.firstname }}</a></td>
+                <td class="align-middle">{{ doctor.lastname }}</td>
+                <td class="align-middle">{{ doctor.specialization.name }}</td>
+                <td class="align-middle">{{ doctor.branch }}</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

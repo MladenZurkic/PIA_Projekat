@@ -14,11 +14,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PatientsController = void 0;
 const patient_1 = __importDefault(require("../models/patient"));
+const doctor_1 = __importDefault(require("../models/doctor"));
 const multer = require('multer');
 const path = require('path');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'src/uploads/');
+        cb(null, 'src/uploads/patients');
     },
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -34,8 +35,19 @@ class PatientsController {
             patient_1.default.findOne({ 'username': username, 'password': password }, (err, patient) => {
                 if (err)
                     console.log(err);
-                else
-                    res.json(patient);
+                else {
+                    if (patient != null) {
+                        res.json({ user: patient, type: "patient" });
+                    }
+                    else {
+                        doctor_1.default.findOne({ 'username': username, 'password': password }, (err, doctor) => {
+                            if (err)
+                                console.log(err);
+                            else
+                                res.json({ user: doctor, type: "doctor" });
+                        });
+                    }
+                }
             });
         };
         this.checkUsername = (req, res) => {
@@ -83,6 +95,11 @@ class PatientsController {
                 else
                     res.json({ "message": "ok" });
             });
+        };
+        this.getImage = (req, res) => {
+            let imgPath = req.query.path;
+            console.log(path.join(__dirname, '../../', imgPath));
+            res.sendFile(path.join(__dirname, '../../', imgPath));
         };
     }
 }

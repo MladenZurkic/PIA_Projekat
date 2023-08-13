@@ -3,6 +3,9 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import doctorsRouter from './routers/doctors.routes';
 import patientsRouter from './routers/patients.routes';
+import managersRouter from './routers/managers.routes';
+import appointmentsRouter from './routers/appointments.routes';
+import reportsRouter from './routers/reports.routes';
 
 
 const app = express();
@@ -18,6 +21,11 @@ connection.once('open', ()=>{
 const router = express.Router();
 router.use('/doctors', doctorsRouter)
 router.use('/patients', patientsRouter)
+router.use('/managers', managersRouter)
+router.use('/appointments', appointmentsRouter)
+router.use('/reports', reportsRouter)
+
+app.use('/uploads',express.static('uploads'));
 
 app.use('/', router)
 app.listen(4000, () => console.log(`Express server running on port 4000`));

@@ -1,0 +1,65 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+        <h1 class="text-center mt-4">Hello {{loggedInUser.firstname}}!</h1>
+        <br>
+        <h2 class="text-center mt-4">Your Future Appointments:</h2>
+
+        <div class="table-responsive mt-4">
+        <!-- Table of Doctors -->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Branch</th>
+              <th>Doctor</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let appointment of allAppointments">
+                <td class="align-middle">{{appointment.name}}</td>
+                <td class="align-middle">{{appointment.date}}</td>
+                <td class="align-middle">{{appointment.time}}</td>
+                <td class="align-middle">{{appointment.branch}}</td> 
+                <td class="align-middle">{{getDoctorNameFromUsername(appointment.doctor)}}</td>
+                <td class="align-middle">test</td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

@@ -1,12 +1,13 @@
 import express from 'express';
 import PatientModel from '../models/patient'
+import DoctorModel from '../models/doctor'
 const multer = require('multer');
 const path = require('path');
 
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'src/uploads/');
+      cb(null, 'src/uploads/patients');
     },
     filename: (req, file, cb) => {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -26,7 +27,17 @@ export class PatientsController {
 
         PatientModel.findOne({ 'username': username, 'password': password }, (err, patient) => {
             if (err) console.log(err);
-            else res.json(patient);
+            else {
+                if(patient!=null){
+                    res.json({user: patient, type: "patient"});
+                }
+                else{
+                    DoctorModel.findOne({ 'username': username, 'password': password }, (err, doctor) => {
+                        if (err) console.log(err);
+                        else res.json({user: doctor, type: "doctor"});
+                    })
+                }
+            }
         })
     }
 
@@ -80,4 +91,10 @@ export class PatientsController {
         });
     }
 
+
+    getImage = (req: express.Request, res: express.Response) => {
+        let imgPath = req.query.path;
+        console.log(path.join(__dirname, '../../', imgPath));
+        res.sendFile(path.join(__dirname, '../../', imgPath));
+    }
 }

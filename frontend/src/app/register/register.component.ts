@@ -99,18 +99,38 @@ export class RegisterComponent implements OnInit{
                           if(res2['message'] == 'ok') {
                         console.log(res2['message']);
                         this.positiveMessage = "Registration successful!";
+                        return;
                       }
                       else {
                         console.log(res2['message']);
                         this.message = "Registration failed!";
+                        return;
                       }
                     });
                   }
                 });
               } else {
                 this.message = 'Image size is not within the specified range (100x100px - 300x300px)';
+                return;
               }
             };
+          }
+          else {
+            //podrazumevana slika se koristi
+            this.imagePath = "src\\uploads\\patients\\default-patient.png";
+                    
+            this.patientService.register(this.username, this.password, this.firstname, this.lastname, this.address, this.phoneNumber, this.email, this.imagePath).subscribe((res2: any) => { 
+                  if(res2['message'] == 'ok') {
+                console.log(res2['message']);
+                this.positiveMessage = "Registration successful!";
+                return;
+              }
+              else {
+                console.log(res2['message']);
+                this.message = "Registration failed!";
+                return;
+              }
+            });
           }
         }
         })

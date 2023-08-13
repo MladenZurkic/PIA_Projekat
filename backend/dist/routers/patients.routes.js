@@ -11,5 +11,6 @@ patientsRouter.route('/checkUsername').post((req, res) => new patients_controlle
 patientsRouter.route('/checkEmail').post((req, res) => new patients_controller_1.PatientsController().checkEmail(req, res));
 patientsRouter.route('/uploadImage').post((req, res) => new patients_controller_1.PatientsController().uploadImage(req, res));
 patientsRouter.route('/register').post((req, res) => new patients_controller_1.PatientsController().register(req, res));
+patientsRouter.route('/getImage').get((req, res) => new patients_controller_1.PatientsController().getImage(req, res));
 exports.default = patientsRouter;
 //# sourceMappingURL=patients.routes.js.map

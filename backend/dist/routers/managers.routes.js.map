@@ -1,0 +1,1 @@
+{"version":3,"file":"managers.routes.js","sourceRoot":"","sources":["../../src/routers/managers.routes.ts"],"names":[],"mappings":";;;;;AAAA,sDAA8B;AAC9B,4EAAwE;AAGxE,MAAM,cAAc,GAAG,iBAAO,CAAC,MAAM,EAAE,CAAC;AAExC,cAAc,CAAC,KAAK,CAAC,QAAQ,CAAC,CAAC,IAAI,CAC/B,CAAC,GAAG,EAAE,GAAG,EAAE,EAAE,CAAC,IAAI,wCAAkB,EAAE,CAAC,KAAK,CAAC,GAAG,EAAE,GAAG,CAAC,CACzD,CAAC;AAEF,kBAAe,cAAc,CAAC"}

@@ -1,5 +1,6 @@
 import express from 'express';
 import DoctorsModel from '../models/doctor'
+const path = require('path');
 
 export class DoctorsController {
 
@@ -26,5 +27,20 @@ export class DoctorsController {
             if (err) console.log(err);
             else res.json(doctors);
         })
+    }
+
+    getDoctorByUsername = (req: express.Request, res: express.Response) => {
+        let doctorUsername = req.body.doctorUsername;
+
+        DoctorsModel.findOne({ 'username': doctorUsername }, (err, doctor) => {
+            if (err) console.log(err);
+            else res.json(doctor);
+        })
+    }
+    
+    getImage = (req: express.Request, res: express.Response) => {
+        let imgPath = req.query.path;
+        console.log(path.join(__dirname, '../../', imgPath));
+        res.sendFile(path.join(__dirname, '../../', imgPath));
     }
 }

@@ -1,0 +1,60 @@
+<div class="container">
+    <header class="text-center mt-4">
+        <h1>VitaCare Clinic</h1>
+        <nav class="d-flex justify-content-between navbarBG">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+            </li>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/changePassword">Change Password</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/logout">Logout</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+  
+    <main class="mt-4">
+      <h1 class="text-center mt-4">Make an Appointment</h1>
+      <h3 class="text-center mt-4">Doctor: {{doctor.lastname}}, {{doctor.firstname}}</h3>
+      <br><br>
+      <div class="login-container">
+        <div class="form-group mb-3">
+            <label style="font-size: 20px;">Examination:</label> &nbsp;
+            <select [(ngModel)]="examination">
+                <option *ngFor="let examination of doctor.examinations" [hidden]="!showExamination(examination)" [ngValue]="examination">{{examination.name}}</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <label style="font-size: 20px;">Select Date:</label>  &nbsp;
+            <input type="date" id="datePicker" [(ngModel)]="selectedDate">
+        </div>
+        <div class="form-group mb-3">            
+            <label style="font-size: 20px;">Select Time:</label>  &nbsp;
+            <input type="time" id="timePicker" [(ngModel)]="selectedTime">
+        </div>
+        <button class="text-center btn btn-primary" (click)="saveAppointment()">Save!</button>
+        <br>
+        <div class="message-display" *ngIf="message"><span class="text-danger">{{message}}</span></div>
+        <div class="posivite-message-display" *ngIf="positiveMessage"><span class="text-success">{{positiveMessage}}</span></div>
+        <br><br>
+      </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

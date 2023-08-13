@@ -1,1 +1,57 @@
-<p>patient works!</p>
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+        <h1 class="text-center mt-4">Hello {{loggedInUser.firstname}}!</h1>
+
+        <div class="form-group mb-3">
+            <img src="{{getSelectedFileUrl()}}" alt="noimage" class="bordered-image">
+        </div>
+        <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Firstname: </span> <span style="font-size: 30px;"> {{loggedInUser.firstname}}</span>
+            <!--&nbsp;&nbsp;<button class="btn btn-primary">Update</button> -->
+        </div>
+        <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Lastname: </span> <span style="font-size: 30px;"> {{loggedInUser.lastname}}</span>
+        </div>
+        <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Address: </span> <span style="font-size: 30px;"> {{loggedInUser.address}}</span>
+        </div>
+        <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Email: </span> <span style="font-size: 30px;"> {{loggedInUser.email}}</span>
+        </div>
+        <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Phone Number: </span> <span style="font-size: 30px;"> {{loggedInUser.phoneNumber}}</span>
+        </div>
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

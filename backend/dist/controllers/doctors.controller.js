@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoctorsController = void 0;
 const doctor_1 = __importDefault(require("../models/doctor"));
+const path = require('path');
 class DoctorsController {
     constructor() {
         this.getAllDoctors = (req, res) => {
@@ -31,6 +32,20 @@ class DoctorsController {
                 else
                     res.json(doctors);
             });
+        };
+        this.getDoctorByUsername = (req, res) => {
+            let doctorUsername = req.body.doctorUsername;
+            doctor_1.default.findOne({ 'username': doctorUsername }, (err, doctor) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(doctor);
+            });
+        };
+        this.getImage = (req, res) => {
+            let imgPath = req.query.path;
+            console.log(path.join(__dirname, '../../', imgPath));
+            res.sendFile(path.join(__dirname, '../../', imgPath));
         };
     }
 }

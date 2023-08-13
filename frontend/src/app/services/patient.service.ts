@@ -67,4 +67,9 @@ export class PatientService {
 
     return this.http.post(`${this.uri}/patients/register`, data);
   }
+
+
+  getImage(path: string){
+    return this.http.get(`${this.uri}/patients/getImage/?path=${path}`, { responseType: 'blob' });
+  }
 }

@@ -1,0 +1,86 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout">Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main class="mt-4">
+        <h2 class="text-center mt-4">Doctor Info</h2>
+        <div class="text-center">
+          <div class="form-group mb-3">
+            <img src="{{getSelectedFileUrl()}}" alt="noimage" class="bordered-image">
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Firstname: </span> <span style="font-size: 30px;"> {{doctor.firstname}}</span>
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Lastname: </span> <span style="font-size: 30px;"> {{doctor.lastname}}</span>
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Phone Number: </span> <span style="font-size: 30px;"> {{doctor.phoneNumber}}</span>
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Email: </span> <span style="font-size: 30px;"> {{doctor.email}}</span>
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Specialization: </span> <span style="font-size: 30px;"> {{doctor.specialization.name}}</span>
+          </div>
+          <div class="form-group mb-3">
+            <span style="font-size: 30px; font-weight: bold;">Branch: </span> <span style="font-size: 30px;"> {{doctor.branch}}</span>
+          </div>
+        </div>
+
+        <h2 class="text-center mt-4">Available Examinations</h2>
+        <!-- Tabela vrste pregleda-->
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name </th>
+              <th>Duration (min)</th>
+              <th>Price (eur)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let examination of doctor.examinations">
+
+                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.name }}</td>
+                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.duration }}</td>
+                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.price }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="text-center">
+          <button class="text-center btn btn-primary" (click)="makeAppointment()">Make an Appointment!</button>
+        </div>
+        <br><br>
+        
+
+    </main>
+  </div>
+  
+  <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+  </footer>

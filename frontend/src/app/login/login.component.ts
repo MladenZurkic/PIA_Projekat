@@ -26,14 +26,23 @@ export class LoginComponent implements OnInit{
     console.log(this.username);
     console.log(this.password);
 
-    this.patientService.login(this.username, this.password).subscribe((patient: Patient) => {
-      if(patient!=null){
-        if(patient.status == "pending"){
-          this.message = "Your account is pending approval!";
-          return;
+    this.patientService.login(this.username, this.password).subscribe((response: any) => {
+      if(response!=null){
+        if(response['type'] == 'patient'){
+          if(response.status == "pending"){
+            this.message = "Your account is pending approval!";
+            return;
+          }
+
+          localStorage.setItem('loggedInUser', JSON.stringify(response['user']));
+          localStorage.setItem('loggedInUserType', 'patient');
+          this.router.navigate(['/patient']);
         }
-        localStorage.setItem('patient', JSON.stringify(patient));
-        this.router.navigate(['/patient']);
+        else {
+          localStorage.setItem('loggedInUser', JSON.stringify(response['user']));
+          localStorage.setItem('loggedInUserType', 'doctor');
+          this.router.navigate(['/doctor']);
+        }
       }
       else{
         this.message = "Invalid username or password!";

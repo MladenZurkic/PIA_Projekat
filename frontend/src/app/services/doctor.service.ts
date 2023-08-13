@@ -26,4 +26,14 @@ export class DoctorService {
     return this.http.post(`${this.uri}/doctors/search/`, data);
   }
 
+  getDoctorByUsername(doctorUsername: string) {
+    const data = {
+      doctorUsername: doctorUsername
+    }
+    return this.http.post(`${this.uri}/doctors/getDoctorByUsername/`, data);
+  }
+
+  getImage(path: string){
+    return this.http.get(`${this.uri}/doctors/getImage/?path=${path}`, { responseType: 'blob' });
+  }
 }
