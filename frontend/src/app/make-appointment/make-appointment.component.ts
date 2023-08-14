@@ -179,7 +179,7 @@ export class MakeAppointmentComponent implements OnInit{
       let appointment = {
         "examination": this.examination,
         "name": this.examination.name,
-        "doctor": this.doctor.username,
+        "doctor": this.doctor,
         "date": this.selectedDate,
         "time": myTimeString[0] + ":" + myTimeString[1],
         "branch": this.doctor.branch,

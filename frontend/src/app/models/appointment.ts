@@ -6,7 +6,7 @@ import { Patient } from "./patient";
 export class Appointment {
     examination: Examination;
     name: string;
-    doctor: string;
+    doctor: Doctor;
     date: Date;
     time: string;
     branch: string;

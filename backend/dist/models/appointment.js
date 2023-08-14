@@ -13,7 +13,7 @@ let Appointment = new Schema({
         type: String
     },
     doctor: {
-        type: String
+        type: Object
     },
     date: {
         type: String
