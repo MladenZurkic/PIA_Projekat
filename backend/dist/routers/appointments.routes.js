@@ -9,5 +9,7 @@ const appointmentsRouter = express_1.default.Router();
 appointmentsRouter.route('/getAllAppointmentsByDoctor').post((req, res) => new appointments_controller_1.AppointmentsController().getAllAppointmentsByDoctor(req, res));
 appointmentsRouter.route('/getAllAppointmentsByPatient').post((req, res) => new appointments_controller_1.AppointmentsController().getAllAppointmentsByPatient(req, res));
 appointmentsRouter.route('/saveAppointment').post((req, res) => new appointments_controller_1.AppointmentsController().saveAppointment(req, res));
+appointmentsRouter.route('/cancelAppointment').post((req, res) => new appointments_controller_1.AppointmentsController().cancelAppointment(req, res));
+appointmentsRouter.route('/getAllReportsByPatient').post((req, res) => new appointments_controller_1.AppointmentsController().getAllReportsByPatient(req, res));
 exports.default = appointmentsRouter;
 //# sourceMappingURL=appointments.routes.js.map

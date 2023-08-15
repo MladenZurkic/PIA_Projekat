@@ -12,9 +12,15 @@ export class RegisterComponent implements OnInit{
 
   constructor(private patientService: PatientService, private router: Router) { }
 
+  loggedInUser: any;
+  loggedInUserType: string;
+
   ngOnInit(): void {
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
   }
 
+  
   username: string = "";
   password: string = "";
   confirmPassword: string = "";
@@ -136,5 +142,15 @@ export class RegisterComponent implements OnInit{
         })
       }
     })
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/register', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

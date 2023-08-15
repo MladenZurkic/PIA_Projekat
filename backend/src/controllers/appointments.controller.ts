@@ -1,5 +1,6 @@
 import express from 'express';
 import AppointmentsModel from '../models/appointment'
+import  ReportsModel from '../models/report'
 const path = require('path');
 
 export class AppointmentsController {
@@ -33,4 +34,27 @@ export class AppointmentsController {
         });
     }
 
+    cancelAppointment = (req: express.Request, res: express.Response) => {
+        let appointment = req.body.appointment;
+        AppointmentsModel.findOneAndUpdate({_id: appointment._id}, {status: "cancelled"}, {new: true})
+        .then(response => {
+          if (response) {
+            res.json({"message": "ok"});
+          } else {
+            res.status(400).json({"message": "error"});
+          }
+        });
+    }
+
+    getAllReportsByPatient = (req: express.Request, res: express.Response) => {
+        let patient = req.body.patient;
+        console.log(patient);
+        ReportsModel.find({"patient.username": patient.username}, (err, reports) => {
+            if (err) console.log(err);
+            else {
+                console.log(reports);
+                res.json(reports);
+            }
+        })
+    }
 }

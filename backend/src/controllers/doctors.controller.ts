@@ -1,5 +1,6 @@
 import express from 'express';
 import DoctorsModel from '../models/doctor'
+import ExaminationModel from '../models/examination'
 const path = require('path');
 
 export class DoctorsController {
@@ -43,4 +44,34 @@ export class DoctorsController {
         console.log(path.join(__dirname, '../../', imgPath));
         res.sendFile(path.join(__dirname, '../../', imgPath));
     }
+
+    getAllExaminationsForSpecialization = (req: express.Request, res: express.Response) => {
+        let specialization = req.body.specialization;
+
+        ExaminationModel.find({status: "accepted", specialization: specialization}, (err, examinations) => {
+            if (err) console.log(err);
+            else res.json(examinations);
+        })
+    }
+
+    addExaminationToDoctor = (req: express.Request, res: express.Response) => {
+        let doctor = req.body.doctor;
+        let examination = req.body.examination;
+
+        DoctorsModel.findOneAndUpdate({username: doctor.username}, {$push: {examinations: examination}}, (err, doctor) => {
+            if (err) console.log(err);
+            else res.json(doctor);
+        })
+    }
+    
+    removeExaminationFromDoctor = (req: express.Request, res: express.Response) => {
+        let doctor = req.body.doctor;
+        let examination = req.body.examination;
+
+        DoctorsModel.findOneAndUpdate({username: doctor.username}, {$pull: {examinations: examination}}, (err, doctor) => {
+            if (err) console.log(err);
+            else res.json(doctor);
+        })
+    }
+
 }

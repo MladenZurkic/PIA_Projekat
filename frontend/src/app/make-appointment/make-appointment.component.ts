@@ -25,7 +25,7 @@ export class MakeAppointmentComponent implements OnInit{
 
   doctor: Doctor;
   loggedInUserType: string;
-  loggedInUser: Patient;
+  loggedInUser: any;
   routeState: any;
 
   examination: any;
@@ -41,8 +41,8 @@ export class MakeAppointmentComponent implements OnInit{
   previousEndingTime: Date;
 
   ngOnInit(): void {
-    this.loggedInUserType = localStorage.getItem('loggedInUserType');
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
   }
 
   showExamination(examination: Examination) {
@@ -195,6 +195,16 @@ export class MakeAppointmentComponent implements OnInit{
           this.positiveMessage = "Appointment successfully scheduled!";
         }
       });
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/patient/makeAppointment', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
     });
   }
 }

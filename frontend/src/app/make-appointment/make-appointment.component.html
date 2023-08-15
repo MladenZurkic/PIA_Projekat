@@ -1,31 +1,77 @@
 <div class="container">
-    <header class="text-center mt-4">
-        <h1>VitaCare Clinic</h1>
-        <nav class="d-flex justify-content-between navbarBG">
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
-            </li>
-          </ul>
-          <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/changePassword">Change Password</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/logout">Logout</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+  <header class="text-center mt-4">
+    <h1>VitaCare Clinic</h1>
+    <nav class="d-flex justify-content-between navbarBG">
+      <ul class="nav">
+        <!-- Unregistered -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "none"'>Home</a>
+        </li>
+  
+        <!-- Patient -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "patient"'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+        </li>
+  
+        <!-- Doctor -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "doctor"'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/doctor" *ngIf='loggedInUserType === "doctor"'>Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/doctor/doctors" *ngIf='loggedInUserType === "doctor"'>Appointments</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/doctor/appointments" *ngIf='loggedInUserType === "doctor"'>Miscellaneous</a>
+        </li>
+  
+        <!-- Manager -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <!-- Unregistered -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" *ngIf='loggedInUserType === "none"'>Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" *ngIf='loggedInUserType === "none"'>Login</a>
+        </li>
+  
+        <!-- Others -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/changePassword" *ngIf='loggedInUserType != "none"'>Change Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/logout" *ngIf='loggedInUserType != "none"' style="cursor: pointer;" (click)="logout()">Logout ({{loggedInUser.firstname}})</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
   
     <main class="mt-4">
       <h1 class="text-center mt-4">Make an Appointment</h1>

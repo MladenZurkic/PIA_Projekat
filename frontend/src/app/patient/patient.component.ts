@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient',
@@ -8,7 +9,7 @@ import { PatientService } from '../services/patient.service';
 })
 export class PatientComponent implements OnInit{
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService, private router: Router) { }
 
   loggedInUserType: string;
   loggedInUser: any;
@@ -24,8 +25,8 @@ export class PatientComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loggedInUserType = localStorage.getItem('loggedInUserType');
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
     this.patientService.getImage(this.loggedInUser.imagePath).subscribe((myBlob: any) => {
       console.log(myBlob);
@@ -38,7 +39,15 @@ export class PatientComponent implements OnInit{
     });
   }
 
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
 
+    //refresh page!
+    this.router.navigateByUrl('/patient', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
+  }
 
 
 }

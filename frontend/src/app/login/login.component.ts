@@ -13,13 +13,18 @@ export class LoginComponent implements OnInit{
 
   constructor(private patientService: PatientService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
+  loggedInUser: any;
+  loggedInUserType: string;
+  
   username: string = "";
   password: string = "";
-
   message: string = "";
+
+  ngOnInit(): void {
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+  }
+
 
   login(){
     this.message = "";
@@ -38,15 +43,32 @@ export class LoginComponent implements OnInit{
           localStorage.setItem('loggedInUserType', 'patient');
           this.router.navigate(['/patient']);
         }
-        else {
+        else if(response['type'] == 'doctor'){
+          if(response.status == "pending"){
+            this.message = "Your account is pending approval!";
+            return;
+          }
           localStorage.setItem('loggedInUser', JSON.stringify(response['user']));
           localStorage.setItem('loggedInUserType', 'doctor');
           this.router.navigate(['/doctor']);
+        }
+        else {
+          this.message = "Invalid username or password!";
         }
       }
       else{
         this.message = "Invalid username or password!";
       }
     })
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/login', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

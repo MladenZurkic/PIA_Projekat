@@ -33,4 +33,18 @@ export class AppointmentService {
     }
     return this.http.post(`${this.uri}/appointments/saveAppointment`, data);
   }
+
+  cancelAppointment(appointment: Appointment) {
+    const data = {
+      appointment: appointment
+    }
+    return this.http.post(`${this.uri}/appointments/cancelAppointment`, data);
+  }
+
+  getAllReportsByPatient(patient: Patient) {
+    const data = {
+      patient: patient
+    }
+    return this.http.post(`${this.uri}/appointments/getAllReportsByPatient`, data);
+  }
 }

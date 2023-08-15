@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoctorsController = void 0;
 const doctor_1 = __importDefault(require("../models/doctor"));
+const examination_1 = __importDefault(require("../models/examination"));
 const path = require('path');
 class DoctorsController {
     constructor() {
@@ -46,6 +47,35 @@ class DoctorsController {
             let imgPath = req.query.path;
             console.log(path.join(__dirname, '../../', imgPath));
             res.sendFile(path.join(__dirname, '../../', imgPath));
+        };
+        this.getAllExaminationsForSpecialization = (req, res) => {
+            let specialization = req.body.specialization;
+            examination_1.default.find({ status: "accepted", specialization: specialization }, (err, examinations) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(examinations);
+            });
+        };
+        this.addExaminationToDoctor = (req, res) => {
+            let doctor = req.body.doctor;
+            let examination = req.body.examination;
+            doctor_1.default.findOneAndUpdate({ username: doctor.username }, { $push: { examinations: examination } }, (err, doctor) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(doctor);
+            });
+        };
+        this.removeExaminationFromDoctor = (req, res) => {
+            let doctor = req.body.doctor;
+            let examination = req.body.examination;
+            doctor_1.default.findOneAndUpdate({ username: doctor.username }, { $pull: { examinations: examination } }, (err, doctor) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(doctor);
+            });
         };
     }
 }

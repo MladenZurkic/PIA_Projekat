@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
 import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patient-doctors',
@@ -10,7 +11,7 @@ import { DoctorService } from '../services/doctor.service';
 })
 export class PatientDoctorsComponent implements OnInit{
 
-  constructor(private patientService: PatientService, private doctorService: DoctorService) { }
+  constructor(private patientService: PatientService, private doctorService: DoctorService, private router: Router) { }
 
 
   getSelectedFileUrl(username: string): string | null {
@@ -21,8 +22,8 @@ export class PatientDoctorsComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.loggedInUserType = localStorage.getItem('loggedInUserType');
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
     this.doctorService.getAllDoctors().subscribe((data: Doctor[]) => {
       this.allDoctors = data;
@@ -56,6 +57,16 @@ export class PatientDoctorsComponent implements OnInit{
   searchLastname: string = "";
   searchSpecialization: string = "";
   searchBranch: string = "";
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/patient/doctors', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
+  }
 
   sortByFirstnameAsc() {
     this.allDoctors.sort((a,b) => a.firstname.localeCompare(b.firstname));

@@ -16,4 +16,12 @@ appointmentsRouter.route('/saveAppointment').post(
     (req, res) => new AppointmentsController().saveAppointment(req, res)
 );
 
+appointmentsRouter.route('/cancelAppointment').post(
+    (req, res) => new AppointmentsController().cancelAppointment(req, res)
+);
+
+appointmentsRouter.route('/getAllReportsByPatient').post(
+    (req, res) => new AppointmentsController().getAllReportsByPatient(req, res)
+);
+
 export default appointmentsRouter;

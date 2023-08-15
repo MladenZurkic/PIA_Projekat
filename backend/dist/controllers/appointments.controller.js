@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppointmentsController = void 0;
 const appointment_1 = __importDefault(require("../models/appointment"));
+const report_1 = __importDefault(require("../models/report"));
 const path = require('path');
 class AppointmentsController {
     constructor() {
@@ -35,6 +36,30 @@ class AppointmentsController {
                 }
                 else
                     res.json({ "message": "ok" });
+            });
+        };
+        this.cancelAppointment = (req, res) => {
+            let appointment = req.body.appointment;
+            appointment_1.default.findOneAndUpdate({ _id: appointment._id }, { status: "cancelled" }, { new: true })
+                .then(response => {
+                if (response) {
+                    res.json({ "message": "ok" });
+                }
+                else {
+                    res.status(400).json({ "message": "error" });
+                }
+            });
+        };
+        this.getAllReportsByPatient = (req, res) => {
+            let patient = req.body.patient;
+            console.log(patient);
+            report_1.default.find({ "patient.username": patient.username }, (err, reports) => {
+                if (err)
+                    console.log(err);
+                else {
+                    console.log(reports);
+                    res.json(reports);
+                }
             });
         };
     }

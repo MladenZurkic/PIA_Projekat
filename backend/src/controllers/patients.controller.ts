@@ -26,15 +26,20 @@ export class PatientsController {
 
 
         PatientModel.findOne({ 'username': username, 'password': password }, (err, patient) => {
-            if (err) console.log(err);
+            if (err) res.json({user: "", type: "none"});
             else {
                 if(patient!=null){
                     res.json({user: patient, type: "patient"});
                 }
                 else{
                     DoctorModel.findOne({ 'username': username, 'password': password }, (err, doctor) => {
-                        if (err) console.log(err);
-                        else res.json({user: doctor, type: "doctor"});
+                        if (err) res.json({user: "", type: "none"});
+                        else {
+                            if(doctor!=null){
+                                res.json({user: doctor, type: "doctor"});
+                            }
+                            else res.json({user: "", type: "none"});
+                        }
                     })
                 }
             }

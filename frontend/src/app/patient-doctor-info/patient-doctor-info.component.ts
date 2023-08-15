@@ -32,9 +32,9 @@ export class PatientDoctorInfoComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       this.doctorUsername = params.get('username');
     });
-
-    this.loggedInUserType = localStorage.getItem('loggedInUserType');
-    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+    
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
     this.doctorService.getDoctorByUsername(this.doctorUsername).subscribe((doctor: Doctor) => {
       if(doctor!=null) {
@@ -61,6 +61,16 @@ export class PatientDoctorInfoComponent implements OnInit{
       state: {
         doctor: JSON.stringify(this.doctor)
       }
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/patient/doctor/:username', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
     });
   }
 }

@@ -4,7 +4,33 @@ const Schema = mongoose.Schema;
 
 let Report = new Schema({
     patient: {
-        type: Object
+        username: {
+            type: String
+        },
+        password: {
+            type: String
+        },
+        firstname: {
+            type: String
+        },
+        lastname: {
+            type: String
+        },
+        address: {
+            type: String
+        },
+        phoneNumber: {
+            type: String
+        },
+        email: {
+            type: String
+        },
+        imagePath: {
+            type: String
+        },
+        status: {
+            type: String
+        }
     },
     date: {
         type: String
@@ -13,7 +39,7 @@ let Report = new Schema({
         type: String
     },
     doctor: {
-        type: String
+        type: Object
     },
     specialization: {
         name: {
@@ -29,9 +55,9 @@ let Report = new Schema({
     therapy: {
         type: String
     },
-    dateOfNextAppointment: {
+    dateOfAppointment: {
         type: String
-    }
+    },
 });
 
 export default mongoose.model('ReportsModel', Report, 'reports');

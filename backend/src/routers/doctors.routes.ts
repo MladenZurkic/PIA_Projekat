@@ -20,4 +20,17 @@ doctorsRouter.route('/getDoctorByUsername').post(
 doctorsRouter.route('/getImage').get(
     (req, res) => new DoctorsController().getImage(req, res)
 );
+
+doctorsRouter.route('/getAllExaminationsForSpecialization').post(
+    (req, res) => new DoctorsController().getAllExaminationsForSpecialization(req, res)
+);
+
+doctorsRouter.route('/addExaminationToDoctor').post(
+    (req, res) => new DoctorsController().addExaminationToDoctor(req, res)
+);
+
+doctorsRouter.route('/removeExaminationFromDoctor').post(
+    (req, res) => new DoctorsController().removeExaminationFromDoctor(req, res)
+);
+
 export default doctorsRouter;

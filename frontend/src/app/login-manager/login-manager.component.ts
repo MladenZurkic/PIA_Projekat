@@ -11,14 +11,18 @@ import { Manager } from '../models/manager';
 })
 export class LoginManagerComponent {
   constructor(private managerService: ManagerService, private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
+  
+  loggedInUser: any;
+  loggedInUserType: string;
+  
   username: string = "";
   password: string = "";
-
   message: string = "";
+
+  ngOnInit(): void {
+    this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
+    this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+  }
 
   login(){
     this.message = "";
@@ -35,5 +39,15 @@ export class LoginManagerComponent {
         this.message = "Invalid username or password!";
       }
     })
+  }
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    localStorage.setItem('loggedInUserType', "none");
+
+    //refresh page!
+    this.router.navigateByUrl('/managerLogin', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

@@ -34,7 +34,7 @@ class PatientsController {
             let password = req.body.password;
             patient_1.default.findOne({ 'username': username, 'password': password }, (err, patient) => {
                 if (err)
-                    console.log(err);
+                    res.json({ user: "", type: "none" });
                 else {
                     if (patient != null) {
                         res.json({ user: patient, type: "patient" });
@@ -42,9 +42,14 @@ class PatientsController {
                     else {
                         doctor_1.default.findOne({ 'username': username, 'password': password }, (err, doctor) => {
                             if (err)
-                                console.log(err);
-                            else
-                                res.json({ user: doctor, type: "doctor" });
+                                res.json({ user: "", type: "none" });
+                            else {
+                                if (doctor != null) {
+                                    res.json({ user: doctor, type: "doctor" });
+                                }
+                                else
+                                    res.json({ user: "", type: "none" });
+                            }
                         });
                     }
                 }
