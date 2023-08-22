@@ -11,7 +11,7 @@ class AppointmentsController {
     constructor() {
         this.getAllAppointmentsByDoctor = (req, res) => {
             let doctor = req.body.doctor;
-            appointment_1.default.find({ doctor: doctor.username }, (err, appointments) => {
+            appointment_1.default.find({ "doctor.username": doctor.username }, (err, appointments) => {
                 if (err)
                     console.log(err);
                 else
@@ -60,6 +60,16 @@ class AppointmentsController {
                     console.log(reports);
                     res.json(reports);
                 }
+            });
+        };
+        this.getAllAppointmentsForPatientAndDoctor = (req, res) => {
+            let patient = req.body.patient;
+            let doctor = req.body.doctor;
+            appointment_1.default.find({ "patient.username": patient.username, "doctor.username": doctor.username }, (err, appointments) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(appointments);
             });
         };
     }

@@ -16,6 +16,9 @@ import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.compo
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
 import { PatientDoctorInfoComponent } from './patient-doctor-info/patient-doctor-info.component';
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
+import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
+import { DoctorMiscellaneousComponent } from './doctor-miscellaneous/doctor-miscellaneous.component';
+import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient-info.component';
 
 
 
@@ -32,7 +35,10 @@ import { MakeAppointmentComponent } from './make-appointment/make-appointment.co
     PatientDoctorsComponent,
     PatientAppointmentsComponent,
     PatientDoctorInfoComponent,
-    MakeAppointmentComponent
+    MakeAppointmentComponent,
+    DoctorAppointmentsComponent,
+    DoctorMiscellaneousComponent,
+    DoctorPatientInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -47,4 +47,12 @@ export class AppointmentService {
     }
     return this.http.post(`${this.uri}/appointments/getAllReportsByPatient`, data);
   }
+
+  getAllAppointmentsForPatientAndDoctor(patient: Patient, doctor: Doctor) {
+    const data = {
+      patient: patient,
+      doctor: doctor
+    }
+    return this.http.post(`${this.uri}/appointments/getAllAppointmentsForPatientAndDoctor`, data);
+  }
 }

@@ -8,7 +8,7 @@ export class AppointmentsController {
     getAllAppointmentsByDoctor = (req: express.Request, res: express.Response) => {
         let doctor = req.body.doctor;
         
-        AppointmentsModel.find({doctor: doctor.username}, (err, appointments) => {
+        AppointmentsModel.find({"doctor.username": doctor.username}, (err, appointments) => {
             if (err) console.log(err);
             else res.json(appointments);
         })
@@ -55,6 +55,16 @@ export class AppointmentsController {
                 console.log(reports);
                 res.json(reports);
             }
+        })
+    }
+
+    getAllAppointmentsForPatientAndDoctor = (req: express.Request, res: express.Response) => {
+        let patient = req.body.patient;
+        let doctor = req.body.doctor;
+
+        AppointmentsModel.find({ "patient.username": patient.username, "doctor.username": doctor.username }, (err, appointments) => {
+            if (err) console.log(err);
+            else res.json(appointments);
         })
     }
 }

@@ -24,4 +24,8 @@ appointmentsRouter.route('/getAllReportsByPatient').post(
     (req, res) => new AppointmentsController().getAllReportsByPatient(req, res)
 );
 
+appointmentsRouter.route('/getAllAppointmentsForPatientAndDoctor').post(
+    (req, res) => new AppointmentsController().getAllAppointmentsForPatientAndDoctor(req, res)
+);
+
 export default appointmentsRouter;

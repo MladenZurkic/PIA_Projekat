@@ -1,0 +1,116 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <!-- Unregistered -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "none"'>Home</a>
+          </li>
+    
+          <!-- Patient -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "patient"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+    
+          <!-- Doctor -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "doctor"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/doctor" *ngIf='loggedInUserType === "doctor"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctor/appointments" *ngIf='loggedInUserType === "doctor"'>Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctor/miscellaneous" *ngIf='loggedInUserType === "doctor"'>Miscellaneous</a>
+          </li>
+    
+          <!-- Manager -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <!-- Unregistered -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" *ngIf='loggedInUserType === "none"'>Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" *ngIf='loggedInUserType === "none"'>Login</a>
+          </li>
+    
+          <!-- Others -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword" *ngIf='loggedInUserType != "none"'>Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout" *ngIf='loggedInUserType != "none"' style="cursor: pointer;" (click)="logout()">Logout ({{loggedInUser.firstname}})</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+      
+        <main class="mt-4">
+            <h1 class="text-center mt-4">Hello Dr. {{loggedInUser.lastname}} {{loggedInUser.firstname}}!</h1>
+            
+            <br><br>
+
+            <div class="table-responsive mt-4">
+              <h2 class="text-center mt-4">Your Future Appointments:</h2>
+              <!-- Table of Doctor's Future Appointments -->
+              <table class="table table-bordered hoverClass">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Branch</th>
+                    <th>Patient</th>
+                    <th class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let appointment of allAppointments">
+                      <td class="align-middle">{{appointment.name}}</td>
+                      <td class="align-middle">{{appointment.date}}</td>
+                      <td class="align-middle">{{appointment.time}}</td>
+                      <td class="align-middle">{{appointment.branch}}</td> 
+                      <td class="align-middle">{{appointment.status}} {{appointment.patient.lastname}} {{appointment.patient.firstname}}</td>
+                      <td class="align-middle text-center">
+                        <button (click)="cancelAppointment(appointment)" class="btn btn-danger">Cancel</button>
+                        &nbsp;
+                        <button (click)="seePatientInfo(appointment)" class="btn btn-info white">See Patient</button>
+                      </td> 
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+        </main>
+      </div>
+    
+    <footer class="footer text-center mt-auto py-3">
+    <p>Mladen Žurkić - PIA Projekat 2023.</p>
+    </footer>

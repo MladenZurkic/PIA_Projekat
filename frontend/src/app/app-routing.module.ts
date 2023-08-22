@@ -11,6 +11,9 @@ import { PatientDoctorsComponent } from './patient-doctors/patient-doctors.compo
 import { PatientDoctorInfoComponent } from './patient-doctor-info/patient-doctor-info.component';
 import { MakeAppointmentComponent } from './make-appointment/make-appointment.component';
 import { PatientAppointmentsComponent } from './patient-appointments/patient-appointments.component';
+import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
+import { DoctorMiscellaneousComponent } from './doctor-miscellaneous/doctor-miscellaneous.component';
+import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient-info.component';
 
 const routes: Routes = [
   {path: "", component: UnregisteredComponent},
@@ -23,7 +26,10 @@ const routes: Routes = [
   {path: "patient/doctors", component: PatientDoctorsComponent},
   {path: "patient/doctor/:username", component: PatientDoctorInfoComponent},
   {path: "patient/makeAppointment", component: MakeAppointmentComponent},
-  {path: "patient/appointments", component: PatientAppointmentsComponent}
+  {path: "patient/appointments", component: PatientAppointmentsComponent},
+  {path: "doctor/appointments", component: DoctorAppointmentsComponent},
+  {path: "doctor/miscellaneous", component: DoctorMiscellaneousComponent},
+  {path: "doctor/patientInfo", component: DoctorPatientInfoComponent}
 ];
 
 @NgModule({

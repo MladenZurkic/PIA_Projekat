@@ -6,6 +6,7 @@ import { DoctorService } from '../services/doctor.service';
 import { Doctor } from '../models/doctor';
 import { Router } from '@angular/router';
 import { Report } from '../models/report';
+import { ReportService } from '../services/report.service';
 
 @Component({
   selector: 'app-patient-appointments',
@@ -14,7 +15,7 @@ import { Report } from '../models/report';
 })
 export class PatientAppointmentsComponent implements OnInit {
 
-  constructor(private appointmentService: AppointmentService, private doctorService: DoctorService, private router: Router) { }
+  constructor(private appointmentService: AppointmentService, private doctorService: DoctorService, private router: Router, private reportService: ReportService) { }
 
   loggedInUserType: string;
   loggedInUser: any;
@@ -44,19 +45,24 @@ export class PatientAppointmentsComponent implements OnInit {
         }
       });
 
-
       for(let i = this.allAppointments.length - 1; i >= 0; i--) {
-        
-        let today = new Date();
-        today.setHours(0, 0, 0, 0);
-        let appointmentDate = new Date(this.allAppointments[i].date);
-        appointmentDate.setHours(0, 0, 0, 0);
-        //console.log(appointmentDate);
-        if(appointmentDate < today) {
+        if(this.allAppointments[i].status != "created") {
           this.allAppointments.splice(i, 1);
         }
       }
 
+      for(let i = this.allAppointments.length - 1; i >= 0; i--) {
+        
+        let today = new Date();
+        let appointmentDate = new Date(this.allAppointments[i].date);
+        let timeHours = Number(this.allAppointments[i].time.split(":")[0]);
+        let timeMinutes = Number(this.allAppointments[i].time.split(":")[1]);
+        appointmentDate.setHours(timeHours, timeMinutes, 0, 0);
+        console.log(appointmentDate);
+        if(appointmentDate < today) {
+          this.allAppointments.splice(i, 1);
+        }
+      }
       console.log("LOGGED IN USER:");
       console.log(this.loggedInUser);
       //Reports
