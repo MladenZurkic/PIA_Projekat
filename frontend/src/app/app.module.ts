@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +24,8 @@ import { MakeAppointmentComponent } from './make-appointment/make-appointment.co
 import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
 import { DoctorMiscellaneousComponent } from './doctor-miscellaneous/doctor-miscellaneous.component';
 import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient-info.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupGenerateReportComponent } from './popup-generate-report/popup-generate-report.component';
 
 
 
@@ -38,13 +45,19 @@ import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient
     MakeAppointmentComponent,
     DoctorAppointmentsComponent,
     DoctorMiscellaneousComponent,
-    DoctorPatientInfoComponent
+    DoctorPatientInfoComponent,
+    PopupGenerateReportComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

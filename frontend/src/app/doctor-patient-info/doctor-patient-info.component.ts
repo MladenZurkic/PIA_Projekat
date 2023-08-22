@@ -5,6 +5,8 @@ import { Patient } from '../models/patient';
 import { Report } from '../models/report';
 import { Appointment } from '../models/appointment';
 import { ReportService } from '../services/report.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupGenerateReportComponent } from '../popup-generate-report/popup-generate-report.component';
 
 @Component({
   selector: 'app-doctor-patient-info',
@@ -13,7 +15,7 @@ import { ReportService } from '../services/report.service';
 })
 export class DoctorPatientInfoComponent implements OnInit {
 
-  constructor(private router: Router, private appointmentService: AppointmentService, private reportService: ReportService) { 
+  constructor(private router: Router, private appointmentService: AppointmentService, private reportService: ReportService, public dialog: MatDialog) { 
     if (this.router.getCurrentNavigation().extras.state) {
       this.routeState = this.router.getCurrentNavigation().extras.state;
       if (this.routeState) {
@@ -95,7 +97,19 @@ export class DoctorPatientInfoComponent implements OnInit {
   }
 
   generateReport(appointment: Appointment) {
+    const dialogRef = this.dialog.open(PopupGenerateReportComponent, {
+      width: '250px',
+      data: {appointment: appointment}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+          console.log("RADI");
+      }
+      else {
+        console.log("NE RADI");
+      }
+    });
   }
 
   logout() {

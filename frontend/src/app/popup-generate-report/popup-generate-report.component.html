@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Popup Dialog {{appointment.date}}</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput [(ngModel)]="inputValue" [ngModelOptions]="{standalone: true}" placeholder="Input Field">
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>
