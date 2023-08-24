@@ -34,8 +34,13 @@ export class LoginComponent implements OnInit{
     this.patientService.login(this.username, this.password).subscribe((response: any) => {
       if(response!=null){
         if(response['type'] == 'patient'){
-          if(response.status == "pending"){
+          console.log(response);
+          if(response["user"].status == "pending"){
             this.message = "Your account is pending approval!";
+            return;
+          }
+          if(response.status == "declined"){
+            this.message = "Your register request is declined!";
             return;
           }
 
@@ -44,7 +49,7 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['/patient']);
         }
         else if(response['type'] == 'doctor'){
-          if(response.status == "pending"){
+          if(response["user"].status == "pending"){
             this.message = "Your account is pending approval!";
             return;
           }

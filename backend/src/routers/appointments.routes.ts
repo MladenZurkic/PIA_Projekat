@@ -20,6 +20,10 @@ appointmentsRouter.route('/cancelAppointment').post(
     (req, res) => new AppointmentsController().cancelAppointment(req, res)
 );
 
+appointmentsRouter.route('/completeAppointment').post(
+    (req, res) => new AppointmentsController().completeAppointment(req, res)
+);
+
 appointmentsRouter.route('/getAllReportsByPatient').post(
     (req, res) => new AppointmentsController().getAllReportsByPatient(req, res)
 );

@@ -1,0 +1,33 @@
+<main class="mt-4">
+  <h1 class="text-center mt-4">Generate Report</h1>
+  <h4 class="text-center mt-4">Patient: {{appointment.patient.firstname}} {{appointment.patient.lastname}}</h4>
+  <h4 class="text-center mt-4">Name: {{appointment.name}}</h4>
+  <h4 class="text-center mt-4">Date&Time: {{appointment.date}} {{appointment.time}}</h4>
+  <br>
+  <div class="login-container">
+    <form>
+      <div class="form-group mb-3">
+        <label for="username" style="font-size: 20px;">Reason</label>
+        <input type="text" class="form-control form-control-lg" id="reason" [(ngModel)]="reason" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="diagnosis" style="font-size: 20px;">Diagnosis</label>
+        <input type="text" class="form-control form-control-lg" id="diagnosis" [(ngModel)]="diagnosis" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="therapy" style="font-size: 20px;">Therapy</label>
+        <input type="text" class="form-control form-control-lg" id="therapy" [(ngModel)]="therapy" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group mb-3">
+        <label for="password" style="font-size: 20px;">Date of Next Appointment</label>
+        <input type="date" id="datePicker" [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Save</button> &nbsp;&nbsp;
+        <button type="submit" class="btn btn-danger btn-lg" (click)="cancel()">Cancel</button>
+      </div>
+      <div class="message-display" *ngIf="showMessage" id="allFieldsRequired"><span class="text-danger">All fields are required!</span></div>
+      <br>
+    </form>
+  </div>
+</main>

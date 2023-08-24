@@ -31,9 +31,13 @@ export class LoginManagerComponent {
 
     this.managerService.login(this.username, this.password).subscribe((response: any) => {
       if(response!=null){
+        if(response['type'] == 'none'){
+          this.message = "Invalid username or password!";
+          return;
+        }
         localStorage.setItem('loggedInUser', JSON.stringify(response['user']));
         localStorage.setItem('loggedInUserType', 'manager');
-        this.router.navigate(['/patient']);
+        this.router.navigate(['/manager']);
       }
       else{
         this.message = "Invalid username or password!";

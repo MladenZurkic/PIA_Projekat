@@ -19,7 +19,27 @@ import { MakeAppointmentComponent } from './make-appointment/make-appointment.co
 import { DoctorAppointmentsComponent } from './doctor-appointments/doctor-appointments.component';
 import { DoctorMiscellaneousComponent } from './doctor-miscellaneous/doctor-miscellaneous.component';
 import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient-info.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupGenerateReportComponent } from './popup-generate-report/popup-generate-report.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input'; 
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { PopupEditPatientComponent } from './popup-edit-patient/popup-edit-patient.component';
+import { PopupDeletePatientComponent } from './popup-delete-patient/popup-delete-patient.component';
+import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
+import { PopupDeleteDoctorComponent } from './popup-delete-doctor/popup-delete-doctor.component';
+import { PopupEditDoctorComponent } from './popup-edit-doctor/popup-edit-doctor.component';
+import { ManagerAddDoctorComponent } from './manager-add-doctor/manager-add-doctor.component';
 
 
 @NgModule({
@@ -38,13 +58,35 @@ import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient
     MakeAppointmentComponent,
     DoctorAppointmentsComponent,
     DoctorMiscellaneousComponent,
-    DoctorPatientInfoComponent
+    DoctorPatientInfoComponent,
+    PopupGenerateReportComponent,
+    PopupEditPatientComponent,
+    PopupDeletePatientComponent,
+    ManagerDoctorsComponent,
+    PopupDeleteDoctorComponent,
+    PopupEditDoctorComponent,
+    ManagerAddDoctorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

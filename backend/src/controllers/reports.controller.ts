@@ -12,4 +12,15 @@ export class ReportsController {
         });
 
     }
+
+
+    saveReport = (req: express.Request, res: express.Response) => {
+        let report = new ReportsModel(req.body.report);
+        report.save((err, resp)=>{
+            if(err) {
+                res.status(400).json({"message": "error"})
+            }
+            else res.json({"message": "ok"})
+        });
+    }
 }

@@ -1,0 +1,76 @@
+main {
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 20px;
+    /*padding: 20px;*/
+  }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .table {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+  
+  .footer {
+    background-color: #acc4dc;
+    flex-shrink: 0;
+    min-height: 40px;
+  }
+  
+
+  .navbarBG {
+    background-color: #6eb6e6;
+  }
+
+  .buttonInTable {
+    background-color: #6eb6e6;
+    color: #fff;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Make the container take up full available height */
+  }
+
+.form-control-lg {
+  font-size: 1.25rem;
+  padding: 1rem;
+  width: 100%;
+}
+
+.btn-lg {
+  font-size: 1.25rem;
+  padding: 0.75rem 2rem;
+}
+
+.login-container form {
+  max-width: 400px; /* Adjust the width as needed */
+  width: 100%;
+  padding: 0 15px; /* Add some padding to the sides */
+}
+
+.message-display {
+  background-color: #fbbaba;
+  padding: 10px;
+  border: 1px solid #ff7d7d;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.gray {
+  color: #6c757d;
+  background-color: lightgray;
+}
+
+.wide{
+  width: 300px;
+}

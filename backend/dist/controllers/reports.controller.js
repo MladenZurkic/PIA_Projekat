@@ -16,6 +16,16 @@ class ReportsController {
                     res.json(reports);
             });
         };
+        this.saveReport = (req, res) => {
+            let report = new report_1.default(req.body.report);
+            report.save((err, resp) => {
+                if (err) {
+                    res.status(400).json({ "message": "error" });
+                }
+                else
+                    res.json({ "message": "ok" });
+            });
+        };
     }
 }
 exports.ReportsController = ReportsController;

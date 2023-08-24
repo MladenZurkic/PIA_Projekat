@@ -4,12 +4,12 @@ import { Specialization } from "./specialization";
 
 export class Report {
     patient: Patient;
-    date: string;
+    date: Date;
     time: string;
     doctor: Doctor;
     specialization: Specialization;
     reason: string;
     diagnosis: string;
     therapy: string;
-    dateOfAppointment: string;   
+    dateOfAppointment: Date;   
 }
