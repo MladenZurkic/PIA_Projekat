@@ -40,6 +40,7 @@ import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.compo
 import { PopupDeleteDoctorComponent } from './popup-delete-doctor/popup-delete-doctor.component';
 import { PopupEditDoctorComponent } from './popup-edit-doctor/popup-edit-doctor.component';
 import { ManagerAddDoctorComponent } from './manager-add-doctor/manager-add-doctor.component';
+import { ManagerRequestsComponent } from './manager-requests/manager-requests.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { ManagerAddDoctorComponent } from './manager-add-doctor/manager-add-doct
     ManagerDoctorsComponent,
     PopupDeleteDoctorComponent,
     PopupEditDoctorComponent,
-    ManagerAddDoctorComponent
+    ManagerAddDoctorComponent,
+    ManagerRequestsComponent
   ],
   imports: [
     BrowserModule,

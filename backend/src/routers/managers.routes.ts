@@ -40,5 +40,16 @@ managersRouter.route('/deleteDoctor').post(
     (req, res) => new ManagersController().deleteDoctor(req, res)
 );
 
+managersRouter.route('/getAllExaminations').get(
+    (req, res) => new ManagersController().getAllExaminations(req, res)
+);
+
+managersRouter.route('/approveExamination').post(
+    (req, res) => new ManagersController().approveExamination(req, res)
+);
+
+managersRouter.route('/declineExamination').post(
+    (req, res) => new ManagersController().declineExamination(req, res)
+);
 
 export default managersRouter;

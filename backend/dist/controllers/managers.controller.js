@@ -7,6 +7,7 @@ exports.ManagersController = void 0;
 const manager_1 = __importDefault(require("../models/manager"));
 const patient_1 = __importDefault(require("../models/patient"));
 const doctor_1 = __importDefault(require("../models/doctor"));
+const examination_1 = __importDefault(require("../models/examination"));
 class ManagersController {
     constructor() {
         this.login = (req, res) => {
@@ -88,6 +89,32 @@ class ManagersController {
         this.deleteDoctor = (req, res) => {
             let doctor = req.body.doctor;
             doctor_1.default.deleteOne({ 'username': doctor.username }, (err) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json({ "message": "ok" });
+            });
+        };
+        this.getAllExaminations = (req, res) => {
+            examination_1.default.find({}, (err, examinations) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json(examinations);
+            });
+        };
+        this.approveExamination = (req, res) => {
+            let examination = req.body.examination;
+            examination_1.default.findOneAndUpdate({ '_id': examination._id }, { status: 'approved' }, (err, examination) => {
+                if (err)
+                    console.log(err);
+                else
+                    res.json({ "message": "ok" });
+            });
+        };
+        this.declineExamination = (req, res) => {
+            let examination = req.body.examination;
+            examination_1.default.findOneAndUpdate({ '_id': examination._id }, { status: 'declined' }, (err, examination) => {
                 if (err)
                     console.log(err);
                 else

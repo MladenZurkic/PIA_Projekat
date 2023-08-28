@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Patient } from '../models/patient';
 import { Doctor } from '../models/doctor';
+import { Examination } from '../models/examination';
 
 @Injectable({
   providedIn: 'root'
@@ -76,5 +77,25 @@ export class ManagerService {
     }
 
     return this.http.post(`${this.uri}/managers/deleteDoctor`, data);
+  }
+
+  getAllExaminations(){
+    return this.http.get(`${this.uri}/managers/getAllExaminations`);
+  }
+
+  approveExamination(examination: Examination){
+    const data = {
+      examination: examination
+    }
+
+    return this.http.post(`${this.uri}/managers/approveExamination`, data);
+  }
+
+  declineExamination(examination: Examination){
+    const data = {
+      examination: examination
+    }
+
+    return this.http.post(`${this.uri}/managers/declineExamination`, data);
   }
 }

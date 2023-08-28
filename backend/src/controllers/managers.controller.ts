@@ -2,6 +2,7 @@ import express from 'express';
 import ManagerModel from '../models/manager'
 import PatientModel from '../models/patient'
 import DoctorModel from '../models/doctor'
+import ExaminationModel from '../models/examination'
 
 export class ManagersController {
 
@@ -84,6 +85,31 @@ export class ManagersController {
         let doctor = req.body.doctor;
 
         DoctorModel.deleteOne({ 'username': doctor.username }, (err) => {
+            if (err) console.log(err);
+            else res.json({"message": "ok"});
+        })
+    }
+
+    getAllExaminations = (req: express.Request, res: express.Response) => {
+        ExaminationModel.find({}, (err, examinations) => {
+            if (err) console.log(err);
+            else res.json(examinations);
+        })
+    }
+
+    approveExamination = (req: express.Request, res: express.Response) => {
+        let examination = req.body.examination;
+
+        ExaminationModel.findOneAndUpdate({ '_id': examination._id }, {status: 'approved' }, (err, examination) => {
+            if (err) console.log(err);
+            else res.json({"message": "ok"});
+        })
+    }
+
+    declineExamination = (req: express.Request, res: express.Response) => {
+        let examination = req.body.examination;
+
+        ExaminationModel.findOneAndUpdate({ '_id': examination._id }, {status: 'declined'}, (err, examination) => {
             if (err) console.log(err);
             else res.json({"message": "ok"});
         })
