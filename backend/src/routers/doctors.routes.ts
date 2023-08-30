@@ -53,4 +53,9 @@ doctorsRouter.route('/register').post(
     (req, res) => new DoctorsController().register(req, res)
 );
 
+doctorsRouter.route('/changePassword').post(
+    (req, res) => new DoctorsController().changePassword(req, res)
+);
+
+
 export default doctorsRouter;

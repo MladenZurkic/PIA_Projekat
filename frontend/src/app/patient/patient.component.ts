@@ -28,6 +28,12 @@ export class PatientComponent implements OnInit{
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "patient") {
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.patientService.getImage(this.loggedInUser.imagePath).subscribe((myBlob: any) => {
       console.log(myBlob);
       myBlob.name = 'image.myext';

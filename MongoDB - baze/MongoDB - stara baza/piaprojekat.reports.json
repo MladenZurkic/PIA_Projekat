@@ -1,0 +1,508 @@
+[{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be697"
+  },
+  "date": "2023-07-19",
+  "time": "09:00",
+  "reason": "Routine check-up",
+  "diagnosis": "Healthy",
+  "therapy": "None",
+  "dateOfAppointment": "2023-09-10",
+  "specialization": {
+    "name": "Pediatrician"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd8"
+    },
+    "username": "dr5",
+    "password": "dr5",
+    "firstname": "Jelena",
+    "lastname": "Nikolic",
+    "address": "Adresa 5",
+    "phoneNumber": "0601234567",
+    "email": "jelena.nikolic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 876543,
+    "branch": "Pediatric Clinic",
+    "specialization": {
+      "name": "Pediatrician"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d539571ee79d9f0a1a6ad4"
+    },
+    "username": "mladenzurkic",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic00@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be698"
+  },
+  "date": "2023-07-15",
+  "time": "14:30",
+  "reason": "Fever and cough",
+  "diagnosis": "Upper respiratory infection",
+  "therapy": "Prescribed antibiotics",
+  "dateOfAppointment": "2023-08-20",
+  "specialization": {
+    "name": "Orthopedic Surgeon"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd7"
+    },
+    "username": "dr4",
+    "password": "dr4",
+    "firstname": "Milan",
+    "lastname": "Jovanovic",
+    "address": "Adresa 4",
+    "phoneNumber": "0601234567",
+    "email": "milan.jovanovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 987654,
+    "branch": "Orthopedic Clinic",
+    "specialization": {
+      "name": "Orthopedic Surgeon"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d539571ee79d9f0a1a6ad4"
+    },
+    "username": "mladenzurkic",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic00@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be699"
+  },
+  "date": "2023-07-16",
+  "time": "11:15",
+  "reason": "Follow-up for diabetes",
+  "diagnosis": "Type 2 diabetes",
+  "therapy": "Insulin therapy adjustment",
+  "dateOfAppointment": "2023-09-02",
+  "specialization": {
+    "name": "Pediatrician"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd8"
+    },
+    "username": "dr5",
+    "password": "dr5",
+    "firstname": "Jelena",
+    "lastname": "Nikolic",
+    "address": "Adresa 5",
+    "phoneNumber": "0601234567",
+    "email": "jelena.nikolic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 876543,
+    "branch": "Pediatric Clinic",
+    "specialization": {
+      "name": "Pediatrician"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d539571ee79d9f0a1a6ad4"
+    },
+    "username": "mladenzurkic",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic00@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69a"
+  },
+  "date": "2023-07-17",
+  "time": "16:45",
+  "reason": "Allergic reaction",
+  "diagnosis": "Contact dermatitis",
+  "therapy": "Topical corticosteroids",
+  "dateOfAppointment": "2023-08-25",
+  "specialization": {
+    "name": "Orthopedic Surgeon"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd7"
+    },
+    "username": "dr4",
+    "password": "dr4",
+    "firstname": "Milan",
+    "lastname": "Jovanovic",
+    "address": "Adresa 4",
+    "phoneNumber": "0601234567",
+    "email": "milan.jovanovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 987654,
+    "branch": "Orthopedic Clinic",
+    "specialization": {
+      "name": "Orthopedic Surgeon"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d539571ee79d9f0a1a6ad4"
+    },
+    "username": "mladenzurkic",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic00@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69b"
+  },
+  "date": "2023-07-18",
+  "time": "10:30",
+  "reason": "Initial consultation",
+  "diagnosis": "Evaluation needed",
+  "therapy": "Further tests ordered",
+  "dateOfAppointment": "2023-09-01",
+  "specialization": {
+    "name": "Dermatologist"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd6"
+    },
+    "username": "dr3",
+    "password": "dr3",
+    "firstname": "Ana",
+    "lastname": "Ivanovic",
+    "address": "Adresa 3",
+    "phoneNumber": "0601234567",
+    "email": "ana.ivanovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 654321,
+    "branch": "Dermatology Clinic",
+    "specialization": {
+      "name": "Dermatologist"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d3af370b8271d5d0752013"
+    },
+    "username": "olivia",
+    "password": "olivia5678",
+    "firstname": "Olivia",
+    "lastname": "Williams",
+    "address": "777 Maple Ave, Town",
+    "phoneNumber": "555-2345",
+    "email": "olivia.williams@example.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69c"
+  },
+  "date": "2023-07-19",
+  "time": "13:00",
+  "reason": "Joint pain",
+  "diagnosis": "Osteoarthritis",
+  "therapy": "Pain management and physiotherapy",
+  "dateOfAppointment": "2023-08-24",
+  "specialization": {
+    "name": "Dermatologist"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28997e8bfca0d00601bd6"
+    },
+    "username": "dr3",
+    "password": "dr3",
+    "firstname": "Ana",
+    "lastname": "Ivanovic",
+    "address": "Adresa 3",
+    "phoneNumber": "0601234567",
+    "email": "ana.ivanovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+    "licenceNumber": 654321,
+    "branch": "Dermatology Clinic",
+    "specialization": {
+      "name": "Dermatologist"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d3af370b8271d5d0752013"
+    },
+    "username": "olivia",
+    "password": "olivia5678",
+    "firstname": "Olivia",
+    "lastname": "Williams",
+    "address": "777 Maple Ave, Town",
+    "phoneNumber": "555-2345",
+    "email": "olivia.williams@example.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69d"
+  },
+  "date": "2023-07-20",
+  "time": "15:20",
+  "reason": "Eye irritation",
+  "diagnosis": "Conjunctivitis",
+  "therapy": "Prescribed eye drops",
+  "dateOfAppointment": "2023-08-22",
+  "specialization": {
+    "name": "Kardiolog"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28968e8bfca0d00601bd4"
+    },
+    "username": "dr2",
+    "password": "dr2",
+    "firstname": "Petar",
+    "lastname": "Petrovic",
+    "address": "Adresa 2",
+    "phoneNumber": "0601234567",
+    "email": "petar.petrovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor.jpg",
+    "licenceNumber": 123456,
+    "branch": "Kardioloska ordinacija",
+    "specialization": {
+      "name": "Kardiolog"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d3af370b8271d5d0752013"
+    },
+    "username": "olivia",
+    "password": "olivia5678",
+    "firstname": "Olivia",
+    "lastname": "Williams",
+    "address": "777 Maple Ave, Town",
+    "phoneNumber": "555-2345",
+    "email": "olivia.williams@example.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69e"
+  },
+  "date": "2023-07-21",
+  "time": "09:45",
+  "reason": "Annual vaccination",
+  "diagnosis": "Preventive care",
+  "therapy": "Vaccination administered",
+  "dateOfAppointment": "2024-08-21",
+  "specialization": {
+    "name": "Kardiolog"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28968e8bfca0d00601bd4"
+    },
+    "username": "dr2",
+    "password": "dr2",
+    "firstname": "Petar",
+    "lastname": "Petrovic",
+    "address": "Adresa 2",
+    "phoneNumber": "0601234567",
+    "email": "petar.petrovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor.jpg",
+    "licenceNumber": 123456,
+    "branch": "Kardioloska ordinacija",
+    "specialization": {
+      "name": "Kardiolog"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d55073e44133df1bbc1037"
+    },
+    "username": "mladenzurkic22",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic2200@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "pending",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be69f"
+  },
+  "date": "2023-07-22",
+  "time": "12:10",
+  "reason": "Stomach pain",
+  "diagnosis": "Gastritis",
+  "therapy": "Dietary recommendations and antacids",
+  "dateOfAppointment": "2023-08-28",
+  "specialization": {
+    "name": "Kardiolog"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28968e8bfca0d00601bd3"
+    },
+    "username": "dr1",
+    "password": "dr1",
+    "firstname": "Marko",
+    "lastname": "Markovic",
+    "address": "Adresa 1",
+    "phoneNumber": "0601234567",
+    "email": "marko.markovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor.jpg",
+    "licenceNumber": 123456,
+    "branch": "Kardioloska ordinacija",
+    "specialization": {
+      "name": "Kardiolog"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d55073e44133df1bbc1037"
+    },
+    "username": "mladenzurkic22",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic2200@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "pending",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64daa0b42e6f97e61e4be6a0"
+  },
+  "date": "2023-07-23",
+  "time": "17:30",
+  "reason": "Injury from fall",
+  "diagnosis": "Minor contusion",
+  "therapy": "Rest and pain relief",
+  "dateOfAppointment": "2023-09-05",
+  "specialization": {
+    "name": "Kardiolog"
+  },
+  "doctor": {
+    "_id": {
+      "$oid": "64d28968e8bfca0d00601bd3"
+    },
+    "username": "dr1",
+    "password": "dr1",
+    "firstname": "Marko",
+    "lastname": "Markovic",
+    "address": "Adresa 1",
+    "phoneNumber": "0601234567",
+    "email": "marko.markovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor.jpg",
+    "licenceNumber": 123456,
+    "branch": "Kardioloska ordinacija",
+    "specialization": {
+      "name": "Kardiolog"
+    }
+  },
+  "patient": {
+    "_id": {
+      "$oid": "64d55073e44133df1bbc1037"
+    },
+    "username": "mladenzurkic22",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "Treci Oktobar 81",
+    "phoneNumber": "+381652281430",
+    "email": "mladen.zurkic2200@gmail.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "pending",
+    "__v": 0
+  }
+},
+{
+  "_id": {
+    "$oid": "64e53da9ce78f49233a0b2fa"
+  },
+  "patient": {
+    "username": "susanP",
+    "password": "Susan1234",
+    "firstname": "Susan",
+    "lastname": "Parker",
+    "address": "333 Birch Ave, Town",
+    "phoneNumber": "555-3456",
+    "email": "susan.parker@example.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  },
+  "date": "2023-06-30",
+  "time": "11:00",
+  "doctor": {
+    "username": "dr1",
+    "password": "dr1",
+    "firstname": "Marko",
+    "lastname": "Markovic",
+    "address": "Adresa 1",
+    "phoneNumber": "0601234567",
+    "email": "marko.markovic@vitacare.com",
+    "imagePath": "src/uploads/doctors/default-doctor.jpg",
+    "licenceNumber": 123456,
+    "branch": "Kardioloska ordinacija",
+    "specialization": {
+      "name": "Kardiolog"
+    }
+  },
+  "specialization": {
+    "name": "Kardiolog"
+  },
+  "reason": "Test1",
+  "diagnosis": "Dijagnoza 1",
+  "therapy": "Terapija 22",
+  "dateOfAppointment": "2023-09-09",
+  "__v": 0
+}]

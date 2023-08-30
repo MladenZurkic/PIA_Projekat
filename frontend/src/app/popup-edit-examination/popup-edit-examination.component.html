@@ -1,0 +1,36 @@
+<main class="mt-4">
+    <h1 class="text-center mt-4">Edit Examination:</h1>
+    <h4 class="text-center mt-4">Specialization: {{examination.specialization.name}}</h4>
+    <br>
+    <div class="login-container">
+        <div class="form-group mb-3">
+            <label for="name" style="font-size: 20px;">Name:</label>
+            <input type="text" class="form-control form-control-lg" id="name" [(ngModel)]="name" 
+            [value]="name" (input)="onInputChangeName($event)" [style.color]="textColorName">
+        </div>
+        &nbsp;
+        <div class="form-group mb-3">
+            <label for="duration" style="font-size: 20px;">Duration:</label>
+            <input type="number" class="form-control form-control-lg" id="duration" [(ngModel)]="duration" 
+            [value]="duration" (input)="onInputChangeDuration($event)" [style.color]="textColorDuration">
+        </div>
+        <div class="form-group mb-3">
+            <label for="price" style="font-size: 20px;">Price:</label>
+            <input type="number" class="form-control form-control-lg" id="price" [(ngModel)]="price" 
+            [value]="price" (input)="onInputChangePrice($event)" [style.color]="textColorPrice">
+        </div>
+        <div class="form-group mb-3">
+            <label style="font-size: 20px;">Specialization:</label><br>
+        <select name="specializations" id="specializations" (change)="onDropdownChange($event)" class="custom-select">
+            <option value="" selected disabled>No changes</option>
+            <option *ngFor="let specialization of allSpecializations" [value]="specialization.name">{{ specialization.name }}</option>
+        </select>
+        </div>
+        <br>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary btn-lg" (click)="save()">Save</button> &nbsp;&nbsp;
+            <button type="submit" class="btn btn-danger btn-lg" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+    <br>
+  </main>

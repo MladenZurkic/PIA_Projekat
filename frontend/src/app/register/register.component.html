@@ -50,7 +50,7 @@
           <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
         </li>
       </ul>
       <ul class="nav">
@@ -77,7 +77,7 @@
       <h1 class="text-center mt-4">Register</h1>
       <br><br>
       <div class="login-container">
-        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <form (ngSubmit)="onSubmit()" enctype="multipart/form-data" class="custom-form">
           <div class="form-group mb-3">
             <label for="username" style="font-size: 20px;">Username</label>
             <input type="text" class="form-control form-control-lg" id="username" placeholder="Enter Username" [(ngModel)]="username" [ngModelOptions]="{standalone:true}">
@@ -113,7 +113,7 @@
 
           <div>
             <label for="email" style="font-size: 20px;">Profile Picture:</label>
-            <input type="file" id="profilePicture" name="profilePicture" accept=".jpg,.png" (change)="onFileSelected($event)">          
+            <input type="file" class="form-control form-control-lg" id="profilePicture" name="profilePicture" accept=".jpg,.png" (change)="onFileSelected($event)">          
           </div>
           <br>
           <div class="text-center">

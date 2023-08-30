@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+
+    if(this.loggedInUserType != "none") {
+      this.router.navigate(['/']);
+    }
   }
 
 
@@ -37,10 +41,16 @@ export class LoginComponent implements OnInit{
           console.log(response);
           if(response["user"].status == "pending"){
             this.message = "Your account is pending approval!";
+            setTimeout(() => {
+              this.message = "";
+            }, 2000);
             return;
           }
           if(response.status == "declined"){
             this.message = "Your register request is declined!";
+            setTimeout(() => {
+              this.message = "";
+            }, 2000);
             return;
           }
 
@@ -51,6 +61,9 @@ export class LoginComponent implements OnInit{
         else if(response['type'] == 'doctor'){
           if(response["user"].status == "pending"){
             this.message = "Your account is pending approval!";
+            setTimeout(() => {
+              this.message = "";
+            }, 2000);
             return;
           }
           localStorage.setItem('loggedInUser', JSON.stringify(response['user']));
@@ -59,10 +72,18 @@ export class LoginComponent implements OnInit{
         }
         else {
           this.message = "Invalid username or password!";
+          setTimeout(() => {
+            this.message = "";
+          }, 2000);
+          return;
         }
       }
       else{
         this.message = "Invalid username or password!";
+        setTimeout(() => {
+          this.message = "";
+        }, 2000);
+        return;
       }
     })
   }

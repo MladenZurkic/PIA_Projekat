@@ -31,9 +31,7 @@ let Doctor = new Schema({
         type: Number
     },
     specialization: {
-        name: {
-            type: String
-        }
+        type: Object
     },
     branch: {
         type: String

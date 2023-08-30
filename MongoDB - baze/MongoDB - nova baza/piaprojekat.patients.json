@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "64ee5dde6e689a672346dd20"
+  },
+  "username": "user123",
+  "password": "Aa1!bcde",
+  "firstname": "John",
+  "lastname": "Doe",
+  "address": "123 Main St. City",
+  "phoneNumber": "555-1234",
+  "email": "john.doe@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee5e826e689a672346dd25"
+  },
+  "username": "janesmith",
+  "password": "Aa1!bcde",
+  "firstname": "Jane",
+  "lastname": "Smith",
+  "address": "456 Elm Ave, Town",
+  "phoneNumber": "555-25547",
+  "email": "jane.smith@example.com",
+  "imagePath": "src\\uploads\\patients\\1693343362942-722243407.png",
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee5eb76e689a672346dd29"
+  },
+  "username": "alex_07",
+  "password": "Aa1!bcde",
+  "firstname": "Alex",
+  "lastname": "Johnson",
+  "address": "789 Oak Rd, Village",
+  "phoneNumber": "555-98545",
+  "email": "alex.johnson@gmail.com",
+  "imagePath": "src\\uploads\\patients\\1693343415063-768240906.png",
+  "status": "approved",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee5ef76e689a672346dd2e"
+  },
+  "username": "lisa.miller",
+  "password": "Aa1!bcde",
+  "firstname": "Lisa",
+  "lastname": "Miller",
+  "address": "101 Pine Ln",
+  "phoneNumber": "+381658742214",
+  "email": "lisa.miller@piaprojekat.com",
+  "imagePath": "src\\uploads\\patients\\1693343479856-945390359.png",
+  "status": "declined",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee5f1d6e689a672346dd32"
+  },
+  "username": "michaelC",
+  "password": "Aa1!bcde",
+  "firstname": "Michael",
+  "lastname": "Kent",
+  "address": "222 Bernaeo Street",
+  "phoneNumber": "+381658742214",
+  "email": "michael.kent@piaprojekat.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee5f4b6e689a672346dd36"
+  },
+  "username": "mladenzurkic",
+  "password": "Aa1!bcde",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "3. Oktobar 81",
+  "phoneNumber": "+3816522547785",
+  "email": "mladen.zurkic@piaprojekat.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved",
+  "__v": 0
+}]

@@ -50,7 +50,7 @@
           <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
         </li>
       </ul>
       <ul class="nav">
@@ -143,17 +143,17 @@
         <br>
 
         <!-- Table of Doctors -->
-        <table class="table table-bordered">
+        <table class="table table-bordered custom-table">
           <thead>
             <tr>
-              <th>Firstname - <button (click)="sortByFirstnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByFirstnameDesc()" class="buttonInTable">Sort Desc</button></th>
-              <th>Lastname - <button (click)="sortByLastnameAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortByLastnameDesc()" class="buttonInTable">Sort Desc</button></th>
-              <th>Specialization - <button (click)="sortBySpecializationAsc()" class="buttonInTable">Sort Asc</button> | <button (click)="sortBySpecializationDesc()" class="buttonInTable">Sort Desc</button></th>
+              <th>Firstname - <button (click)="sortByFirstnameAsc()" class="buttonInTable">&#x21E7;</button> | <button (click)="sortByFirstnameDesc()" class="buttonInTable">&#x21E9;</button></th>
+              <th>Lastname - <button (click)="sortByLastnameAsc()" class="buttonInTable">&#x21E7;</button> | <button (click)="sortByLastnameDesc()" class="buttonInTable">&#x21E9;</button></th>
+              <th>Specialization - <button (click)="sortBySpecializationAsc()" class="buttonInTable">&#x21E7;</button> | <button (click)="sortBySpecializationDesc()" class="buttonInTable">&#x21E9;</button></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let doctor of allDoctors">
-              <td class="align-middle"><img height="50px" width="50px" src="/../../assets/doctors/{{doctor.imagePath}}" alt="doctor1">{{ doctor.firstname }}</td>
+              <td class="align-middle"><img height="50px" width="50px" src="{{getSelectedFileUrl(doctor.username)}}" alt="doctorImg">{{ doctor.firstname }}</td>
               <td class="align-middle">{{ doctor.lastname }}</td>
               <td class="align-middle">{{ doctor.specialization.name }}</td>
             </tr>

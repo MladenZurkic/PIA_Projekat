@@ -41,6 +41,11 @@ export class DoctorPatientInfoComponent implements OnInit {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "doctor") {
+      this.router.navigate(['/']);
+      return;
+    }
+
     if(this.patient != null) {
       localStorage.setItem('patientInfo', JSON.stringify(this.patient));
     }

@@ -30,6 +30,11 @@ export class ManagerDoctorsComponent implements OnInit{
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "manager") {
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.managerService.getAllDoctors().subscribe((doctors: Doctor[]) => {
       this.allDoctors = doctors;
       

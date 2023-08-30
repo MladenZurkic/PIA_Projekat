@@ -33,6 +33,11 @@ export class DoctorComponent implements OnInit{
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "doctor") {
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.doctorService.getDoctorByUsername(this.loggedInUser.username).subscribe((doctor: Doctor) => {
       //Change localStorage if needed
       console.log(doctor);

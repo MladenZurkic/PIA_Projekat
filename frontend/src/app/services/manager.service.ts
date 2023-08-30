@@ -63,9 +63,10 @@ export class ManagerService {
     return this.http.get(`${this.uri}/managers/getAllDoctors`);
   }
 
-  editDoctor(doctor: Doctor){
+  editDoctor(doctor: Doctor, selectedSpecialization: string){
     const data = {
-      doctor: doctor
+      doctor: doctor,
+      selectedSpecialization: selectedSpecialization
     }
 
     return this.http.post(`${this.uri}/managers/editDoctor`, data);
@@ -97,5 +98,53 @@ export class ManagerService {
     }
 
     return this.http.post(`${this.uri}/managers/declineExamination`, data);
+  }
+
+  getAllSpecializations(){
+    return this.http.get(`${this.uri}/managers/getAllSpecializations`);
+  }
+
+  addSpecialization(name: string){
+    const data = {
+      name: name
+    }
+
+    return this.http.post(`${this.uri}/managers/addSpecialization`, data);
+  }
+
+  addExamination(name: string, price: number, duration: number, specialization: string){
+    const data = {
+      name: name,
+      price: price,
+      duration: duration,
+      specializationName: specialization
+    }
+
+    return this.http.post(`${this.uri}/managers/addExamination`, data);
+  }
+
+  editExamination(examination: Examination){
+    const data = {
+      examination: examination
+    }
+
+    return this.http.post(`${this.uri}/managers/editExamination`, data);
+  }
+
+  deleteExamination(examination: Examination){
+    const data = {
+      examination: examination
+    }
+
+    return this.http.post(`${this.uri}/managers/deleteExamination`, data);
+  }
+
+  changePassword(id: string, newPassword: string){
+    const data = {
+      id: id,
+      newPassword: newPassword
+    }
+
+    return this.http.post(`${this.uri}/managers/changePassword`, data);
   }
 }

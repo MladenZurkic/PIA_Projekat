@@ -7,6 +7,8 @@ import { ManagerService } from '../services/manager.service';
 import { PatientService } from '../services/patient.service';
 import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
+import { Specialization } from '../models/specialization';
+import { Examination } from '../models/examination';
 
 
 @Component({
@@ -31,7 +33,10 @@ export class PopupEditDoctorComponent {
     address: string;
     licenceNumber: number;
     branch: string;
-    specialization: string;
+    specialization: Specialization;
+    allSpecializations: Specialization[];
+    selectedSpecialization: string = "";
+
 
     initialPassword: string;
     textColorPassword: string = "gray";
@@ -57,8 +62,6 @@ export class PopupEditDoctorComponent {
     initialBranch: string;
     textColorBranch: string = "gray";
 
-    initialSpecialization: string;
-    textColorSpecialization: string = "gray";
     
     selectedFile: File = null;
     imagePath: string = "";
@@ -94,17 +97,25 @@ export class PopupEditDoctorComponent {
       this.initialBranch = this.doctor.branch;
       this.branch = this.doctor.branch;
 
-      this.initialSpecialization = this.doctor.specialization.name;
-      this.specialization = this.doctor.specialization.name;
+      this.specialization = this.doctor.specialization;
+
+      this.managerService.getAllSpecializations().subscribe((specializations: Specialization[]) => {
+        this.allSpecializations = specializations;
+      });
     }
 
     onFileSelected(event: any) {
       this.selectedFile = event.target.files[0];
     }
 
+    onDropdownChange(event: any) {
+      this.selectedSpecialization = event.target.value;
+    }
+
+
 
     save() {
-      if(this.textColorAddress == "gray" && this.textColorEmail == "gray" && this.textColorFirstname == "gray" && this.textColorLastname == "gray" && this.textColorPassword == "gray" && this.textColorPhoneNumber == "gray" && this.textColorLicenceNumber == "gray" && this.textColorBranch == "gray" && this.textColorSpecialization == "gray" && this.selectedFile == null) {
+      if(this.textColorAddress == "gray" && this.textColorEmail == "gray" && this.textColorFirstname == "gray" && this.textColorLastname == "gray" && this.textColorPassword == "gray" && this.textColorPhoneNumber == "gray" && this.textColorLicenceNumber == "gray" && this.textColorBranch == "gray" && this.selectedFile == null &&this.selectedSpecialization == "" || this.selectedSpecialization == this.specialization.name) {
         //no changes detected
         this.dialogRef.close(true);
       }
@@ -142,9 +153,8 @@ export class PopupEditDoctorComponent {
                   this.doctor.imagePath = this.imagePath;
                   this.doctor.licenceNumber = this.licenceNumber;
                   this.doctor.branch = this.branch;
-                  this.doctor.specialization.name = this.specialization;
 
-                  this.managerService.editDoctor(this.doctor).subscribe((response: any) => {
+                  this.managerService.editDoctor(this.doctor, this.selectedSpecialization).subscribe((response: any) => {
                     if (response['message'] == "ok") {
                       this.dialogRef.close(true);
                     }
@@ -170,9 +180,8 @@ export class PopupEditDoctorComponent {
           this.doctor.address = this.address;
           this.doctor.licenceNumber = this.licenceNumber;
           this.doctor.branch = this.branch;
-          this.doctor.specialization.name = this.specialization;
 
-          this.managerService.editDoctor(this.doctor).subscribe((response: any) => {
+          this.managerService.editDoctor(this.doctor, this.selectedSpecialization).subscribe((response: any) => {
             if (response['message'] == "ok") {
               this.dialogRef.close(true);
             }
@@ -228,11 +237,6 @@ export class PopupEditDoctorComponent {
     onInputChangeBranch(event: any) {
       const newValue = event.target.value;
       this.textColorBranch = newValue === this.initialBranch ? "gray" : "black";
-    }
-
-    onInputChangeSpecialization(event: any) {
-      const newValue = event.target.value;
-      this.textColorSpecialization = newValue === this.initialSpecialization ? "gray" : "black";
     }
 
 }

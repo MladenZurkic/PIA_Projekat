@@ -52,4 +52,27 @@ managersRouter.route('/declineExamination').post(
     (req, res) => new ManagersController().declineExamination(req, res)
 );
 
+managersRouter.route('/getAllSpecializations').get(
+    (req, res) => new ManagersController().getAllSpecializations(req, res)
+);
+
+managersRouter.route('/addSpecialization').post(
+    (req, res) => new ManagersController().addSpecialization(req, res)
+);
+
+managersRouter.route('/editExamination').post(
+    (req, res) => new ManagersController().editExamination(req, res)
+);
+
+managersRouter.route('/addExamination').post(
+    (req, res) => new ManagersController().addExamination(req, res)
+);
+
+managersRouter.route('/deleteExamination').post(
+    (req, res) => new ManagersController().deleteExamination(req, res)
+);
+
+managersRouter.route('/changePassword').post(
+    (req, res) => new ManagersController().changePassword(req, res)
+);
 export default managersRouter;

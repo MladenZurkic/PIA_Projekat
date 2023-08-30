@@ -1,0 +1,140 @@
+<div class="container">
+    <header class="text-center mt-4">
+      <h1>VitaCare Clinic</h1>
+      <nav class="d-flex justify-content-between navbarBG">
+        <ul class="nav">
+          <!-- Unregistered -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "none"'>Home</a>
+          </li>
+    
+          <!-- Patient -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "patient"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/patient" *ngIf='loggedInUserType === "patient"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/doctors" *ngIf='loggedInUserType === "patient"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patient/appointments" *ngIf='loggedInUserType === "patient"'>Appointments</a>
+          </li>
+    
+          <!-- Doctor -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "doctor"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/doctor" *ngIf='loggedInUserType === "doctor"'>Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctor/appointments" *ngIf='loggedInUserType === "doctor"'>Appointments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctor/miscellaneous" *ngIf='loggedInUserType === "doctor"'>Miscellaneous</a>
+          </li>
+    
+          <!-- Manager -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/manager" *ngIf='loggedInUserType === "manager"'>Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
+          </li>
+        </ul>
+        <ul class="nav">
+          <!-- Unregistered -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" *ngIf='loggedInUserType === "none"'>Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" *ngIf='loggedInUserType === "none"'>Login</a>
+          </li>
+    
+          <!-- Others -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/changePassword" *ngIf='loggedInUserType != "none"'>Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/logout" *ngIf='loggedInUserType != "none"' style="cursor: pointer;" (click)="logout()">Logout ({{loggedInUser.firstname}})</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+      
+    <main class="mt-4">
+        <h1 class="text-center mt-4">Hello, Manager {{loggedInUser.firstname}}!</h1>
+        <br>
+        <div class="message-display" *ngIf="initMessage" id="initMessage"><span class="text-danger">{{initMessage}}</span></div>
+        <div class="posivite-message-display" *ngIf="initPositiveMessage" id="initPositiveMessage"><span class="text-success">{{initPositiveMessage}}</span></div>
+        <div class="message-display" *ngIf="showMessage"><span class="text-danger">{{message}}</span></div>
+        <br>
+        <div class="table-responsive mt-4">
+
+          <!-- Table of All Specializations -->
+          <h2 class="text-center mt-4">All Specializations:</h2>
+            <table class="table table-bordered custom-table">
+                <tr *ngFor="let rowIndex of rowIndices">
+                    <ng-container *ngFor="let specialization of getItemsForRow(rowIndex)">
+                        <td class="align-middle tdCustomTable">{{ specialization.name }}</td>
+                    </ng-container>
+                </tr>
+            </table>
+            <button (click)="addSpecialization()" class="btn btn-primary">Add Specialization</button>
+            
+            <br><br>
+
+            <div class="table-responsive mt-4 text-center">
+                <label style="font-size: 20px;">Select Specialization:</label><br>
+                <select name="specializations" id="specializations" (change)="onDropdownChange($event)" class="custom-select">
+                    <option value="" selected>All</option>
+                    <option *ngFor="let specialization of allSpecializations" [value]="specialization.name">{{ specialization.name }}</option>
+                </select>
+            </div>
+            <!-- Table of Examinations -->
+            <h2 class="text-center mt-4">All Examinations:</h2>
+            <table class="table table-bordered custom-table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                    <th>Specialization</th>
+                    <th class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let examination of allExaminations">
+                        <tr *ngIf="showExamination(examination)">
+                        <td class="align-middle">{{examination.name}}</td>
+                        <td class="align-middle">{{examination.duration}}</td>
+                        <td class="align-middle">{{examination.price}}</td> 
+                        <td class="align-middle">{{examination.specialization.name}}</td>
+                        <td class="align-middle text-center">
+                            <button (click)="editExamination(examination)" class="btn btn-warning">Edit</button> &nbsp;
+                            <button (click)="deleteExamination(examination)" class="btn btn-danger">Delete</button>
+                        </td> 
+                        </tr>
+                    </ng-container>
+                </tbody>
+          </table>
+          <button (click)="addExamination()" class="btn btn-primary">Add Examination</button>
+          <br><br>
+      </div>
+    </main>
+</div>
+    
+<footer class="footer text-center mt-auto py-3">
+<p>Mladen Žurkić - PIA Projekat 2023.</p>
+</footer>

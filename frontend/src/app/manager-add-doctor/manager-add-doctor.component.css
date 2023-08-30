@@ -130,3 +130,21 @@
   border: 2px solid #ccc; 
   box-shadow: 10px 10px 20px rgba(169, 137, 137, 0.1);
 }
+.custom-select {
+  appearance: none;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 200px;
+  background-color: white;
+}
+
+.custom-select option {
+  padding: 10px;
+}
+
+.custom-select option:checked {
+  background-color: #3498db;
+  color: white;
+}

@@ -18,5 +18,6 @@ doctorsRouter.route('/uploadImage').post((req, res) => new doctors_controller_1.
 doctorsRouter.route('/checkUsername').post((req, res) => new doctors_controller_1.DoctorsController().checkUsername(req, res));
 doctorsRouter.route('/checkEmail').post((req, res) => new doctors_controller_1.DoctorsController().checkEmail(req, res));
 doctorsRouter.route('/register').post((req, res) => new doctors_controller_1.DoctorsController().register(req, res));
+doctorsRouter.route('/changePassword').post((req, res) => new doctors_controller_1.DoctorsController().changePassword(req, res));
 exports.default = doctorsRouter;
 //# sourceMappingURL=doctors.routes.js.map

@@ -8,11 +8,11 @@ import { Time } from '@angular/common';
 import { AppointmentService } from '../services/appointment.service';
 
 @Component({
-  selector: 'app-make-appointment',
-  templateUrl: './make-appointment.component.html',
-  styleUrls: ['./make-appointment.component.css']
+  selector: 'app-patient-make-appointment',
+  templateUrl: './patient-make-appointment.component.html',
+  styleUrls: ['./patient-make-appointment.component.css']
 })
-export class MakeAppointmentComponent implements OnInit{
+export class PatientMakeAppointmentComponent implements OnInit{
 
   constructor(private router: Router, private appointmentService: AppointmentService) { 
     if (this.router.getCurrentNavigation().extras.state) {
@@ -43,10 +43,15 @@ export class MakeAppointmentComponent implements OnInit{
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "patient") {
+      this.router.navigate(['/']);
+      return;
+    }
   }
 
   showExamination(examination: Examination) {
-    if(examination.status != 'pending') {
+    if(examination.status == 'accepted') {
       return true;
     }
     return false;
@@ -84,14 +89,11 @@ export class MakeAppointmentComponent implements OnInit{
         }
       });
 
-      console.log("Sortirani appointments:");
-      console.log(appointments);
 
       for(let appointment of appointments) {
         const mongoDBDate = new Date(appointment.date);
         const yourStartingDate = new Date(this.selectedDate);
 
-        console.log("Uslismo");
         if(this.flag) {
           
           const timeString = appointment.time.split(':');
@@ -112,18 +114,26 @@ export class MakeAppointmentComponent implements OnInit{
           }
           else if(this.potentialStartingTime >= mongoDBDate && this.potentialStartingTime <= endingMongoDBDate) {
             this.message = "This doctor is not available at this time!";
+            setTimeout(() => {
+              this.message = "";
+            },2000);
             return;
           }
           else if(this.potentialEndingTime >= mongoDBDate && this.potentialEndingTime <= endingMongoDBDate) {
             this.message = "This doctor is not available at this time!";
+            setTimeout(() => {
+              this.message = "";
+            },2000);
             return;
           }
           else if(this.potentialEndingTime > mongoDBDate) {
             this.message = "This doctor is not available at this time!";
+            setTimeout(() => {
+              this.message = "";
+            },2000);
             return;
           }
           else {
-            console.log("dobbri smo!");
             break;
           }
         }
@@ -156,6 +166,9 @@ export class MakeAppointmentComponent implements OnInit{
 
           if((yourStartingDate >= mongoDBDate && yourStartingDate <= endingMongoDBDate) || (yourEndingDate >= mongoDBDate && yourEndingDate <= endingMongoDBDate)) {
             this.message = "This doctor is not available at this time!";
+            setTimeout(() => {
+              this.message = "";
+            },2000);
             return;
           }
           else {
@@ -193,6 +206,9 @@ export class MakeAppointmentComponent implements OnInit{
           console.log("Appointment saved!");
           console.log(appointment);
           this.positiveMessage = "Appointment successfully scheduled!";
+          setTimeout(() => {
+            this.positiveMessage = "";
+          },2000);
         }
       });
     });

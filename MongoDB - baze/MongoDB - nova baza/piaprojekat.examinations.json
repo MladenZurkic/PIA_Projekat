@@ -1,0 +1,403 @@
+[{
+  "_id": {
+    "$oid": "64ee705911529b4331e7d263"
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "name": "Colonoscopy",
+  "duration": 30,
+  "price": 350,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee706f11529b4331e7d26c"
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "name": "Capsule Endoscopy",
+  "duration": 180,
+  "price": 480,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee70a711529b4331e7d272"
+  },
+  "specialization": {
+    "name": "Nephrology"
+  },
+  "name": "Renal Ultrasound",
+  "duration": 30,
+  "price": 150,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee70bc11529b4331e7d278"
+  },
+  "specialization": {
+    "name": "Nephrology"
+  },
+  "name": "Kidney Stone Analysis",
+  "duration": 200,
+  "price": 200,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee70f311529b4331e7d27e"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": "C-reactive Protein (CRP) Test",
+  "duration": 15,
+  "price": 30,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee710611529b4331e7d284"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": " Joint Aspiration (Arthrocentesis)",
+  "duration": 30,
+  "price": 200,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee712711529b4331e7d28a"
+  },
+  "specialization": {
+    "name": "General Surgery"
+  },
+  "name": "Abdominal Ultrasound",
+  "duration": 30,
+  "price": 150,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee713a11529b4331e7d290"
+  },
+  "specialization": {
+    "name": "General Surgery"
+  },
+  "name": "Excision of Skin Lesion",
+  "duration": 45,
+  "price": 250,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee716511529b4331e7d296"
+  },
+  "specialization": {
+    "name": "Neurosurgery"
+  },
+  "name": "Ventriculoperitoneal Shunt Placement",
+  "duration": 120,
+  "price": 2000,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee717711529b4331e7d29c"
+  },
+  "specialization": {
+    "name": "Neurosurgery"
+  },
+  "name": "Microdiscectomy",
+  "duration": 90,
+  "price": 3000,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee719911529b4331e7d2a2"
+  },
+  "specialization": {
+    "name": "Plastic Surgery"
+  },
+  "name": "Botox Injection",
+  "duration": 60,
+  "price": 350,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee71ad11529b4331e7d2a8"
+  },
+  "specialization": {
+    "name": "Plastic Surgery"
+  },
+  "name": "Liposuction",
+  "duration": 120,
+  "price": 1900,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee71d411529b4331e7d2ae"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Fetal Echocardiogram",
+  "duration": 60,
+  "price": 450,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee71e411529b4331e7d2b4"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Electrocardiogram (ECG or EKG)",
+  "duration": 30,
+  "price": 100,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee724811529b4331e7d2ba"
+  },
+  "specialization": {
+    "name": "Dermatopathology"
+  },
+  "name": "Patch Testing (Allergy Testing)",
+  "duration": 200,
+  "price": 170,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee725a11529b4331e7d2c0"
+  },
+  "specialization": {
+    "name": "Dermatopathology"
+  },
+  "name": "Tzanck Smear",
+  "duration": 10,
+  "price": 100,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee728211529b4331e7d2c6"
+  },
+  "specialization": {
+    "name": "Cosmetic Dermatology"
+  },
+  "name": "Chemical Peel",
+  "duration": 60,
+  "price": 300,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee729311529b4331e7d2cc"
+  },
+  "specialization": {
+    "name": "Cosmetic Dermatology"
+  },
+  "name": "Laser Hair Removal",
+  "duration": 150,
+  "price": 300,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7b90894e74210e79fd38"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Pediatric Echocardiogram:",
+  "duration": 60,
+  "price": 320,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7bb1894e74210e79fd3e"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Holter Monitor",
+  "duration": 600,
+  "price": 360,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7bc9894e74210e79fd44"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Exercise Stress Test",
+  "duration": 55,
+  "price": 150,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7be5894e74210e79fd4a"
+  },
+  "specialization": {
+    "name": "Plastic Surgery"
+  },
+  "name": "Rhinoplasty (Nose Job)",
+  "duration": 180,
+  "price": 3500,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7c00894e74210e79fd50"
+  },
+  "specialization": {
+    "name": "Plastic Surgery"
+  },
+  "name": " Dermal Filler Injection",
+  "duration": 60,
+  "price": 650,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7c2b894e74210e79fd56"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": "Rheumatoid Factor Test",
+  "duration": 15,
+  "price": 50,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7c3e894e74210e79fd5c"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": "MRI of Joints or Spine",
+  "duration": 60,
+  "price": 300,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7c61894e74210e79fd62"
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "name": " Breath Test for Helicobacter pylori",
+  "duration": 20,
+  "price": 100,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7c72894e74210e79fd68"
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "name": "Esophageal Manometry",
+  "duration": 45,
+  "price": 300,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7d01894e74210e79fdca"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Pulse Oximetry Screening",
+  "duration": 5,
+  "price": 50,
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7d22894e74210e79fdcc"
+  },
+  "specialization": {
+    "name": "Pediatric Cardiology"
+  },
+  "name": "Genetic Testing for Congenital Heart Conditions",
+  "duration": 45,
+  "price": 399,
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7d52894e74210e79fdd6"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": "Synovial Biopsy",
+  "duration": 40,
+  "price": 600,
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee7d71894e74210e79fddb"
+  },
+  "specialization": {
+    "name": "Rheumatology"
+  },
+  "name": "ESR Test",
+  "duration": 10,
+  "price": 20,
+  "status": "pending",
+  "__v": 0
+}]

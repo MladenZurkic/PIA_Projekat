@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a7e"
+  },
+  "name": "Pediatrician"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a7f"
+  },
+  "name": "Laboratory Medicine"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a80"
+  },
+  "name": "Kardiolog"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a81"
+  },
+  "name": "Radiology"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a82"
+  },
+  "name": "General Medicine"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a83"
+  },
+  "name": "Cardiology"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a84"
+  },
+  "name": "Dermatologist"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a85"
+  },
+  "name": "Gastroenterology"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a86"
+  },
+  "name": "Orthopedics"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a87"
+  },
+  "name": "Gynecology"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a88"
+  },
+  "name": "Allergy and Immunology"
+},
+{
+  "_id": {
+    "$oid": "64e6259bdb5b425e0eb66a89"
+  },
+  "name": "Orthopedic Surgeon"
+},
+{
+  "_id": {
+    "$oid": "64ed17b0207fb27809774638"
+  },
+  "name": "Test Spec",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ed19ea207fb27809774646"
+  },
+  "name": "ASDA",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee2afd2e05e8b925932372"
+  },
+  "name": "Specijalizacija 1",
+  "__v": 0
+}]

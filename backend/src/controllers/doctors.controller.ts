@@ -1,6 +1,7 @@
 import express from 'express';
 import DoctorModel from '../models/doctor'
 import ExaminationModel from '../models/examination'
+import SpecializationModel from '../models/specialization'
 const path = require('path');
 const multer = require('multer');
 
@@ -63,7 +64,7 @@ export class DoctorsController {
     getAllExaminationsForSpecialization = (req: express.Request, res: express.Response) => {
         let specialization = req.body.specialization;
 
-        ExaminationModel.find({status: "accepted", specialization: specialization}, (err, examinations) => {
+        ExaminationModel.find({status: "accepted", "specialization.name": specialization.name}, (err, examinations) => {
             if (err) console.log(err);
             else res.json(examinations);
         })
@@ -141,14 +142,37 @@ export class DoctorsController {
         let imagePath = req.body.imagePath;
         let licenceNumber = req.body.licenceNumber;
         let branch = req.body.branch;
-        let specialization = req.body.specialization;
+        let specializationString = req.body.specializationString;
 
-        let doctor = new DoctorModel({username, password, firstname, lastname, address, phoneNumber, email, imagePath, licenceNumber, branch, specialization, "examinations": []});
-        doctor.save((err, resp)=>{
-            if(err) {
-                res.status(400).json({"message": "error"})
+        SpecializationModel.find({name: specializationString}, (err, specializationfromDB) => {
+            if (err) console.log(err);
+            else {
+                let specialization = specializationfromDB[0];
+                let doctor = new DoctorModel({username, password, firstname, lastname, address, phoneNumber, email, imagePath, licenceNumber, branch, specialization, "examinations": []});
+                doctor.save((err, resp)=>{
+                    if(err) {
+                        res.status(400).json({"message": "error"})
+                    }
+                    else res.json({"message": "ok"})
+                });
             }
-            else res.json({"message": "ok"})
+        })
+    }
+
+    changePassword = (req: express.Request, res: express.Response) => {
+        let id = req.body.id;
+        let newPassword = req.body.newPassword;
+
+        console.log(id);
+        console.log(newPassword);
+        DoctorModel.findOneAndUpdate({ '_id': id }, {password: newPassword}, (err, response) => {
+            if (err) console.log(err);
+            else {
+                DoctorModel.findOne({ '_id': id }, (err, doctor) => {
+                    if (err) console.log(err);
+                    else res.json({"message": "ok", "doctor": doctor});
+                });
+            }
         });
     }
 }

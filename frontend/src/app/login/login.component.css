@@ -1,85 +1,152 @@
-/* Add a CSS class to the container to make it a flex container with a column layout */
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Set the container's minimum height to 100% of the viewport */
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-  .main {
-    flex: 1;
-  }
-  
-  .header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1rem;
-  }
-  
-  .header h1 {
-    margin-bottom: 0;
-  }
-  
-  .nav-link {
-    color: #fff;
-    font-size: 19px;
-  }
-  
-  .nav-link:hover {
-    color: gray;
-    font-size: 19px;
-  }
+.main {
+  flex: 1;
+}
 
-  .table {
-    margin-top: 1rem;
-    max-width: 100%;
-  }
-  
-  .footer {
-    background-color: #acc4dc;
-    flex-shrink: 0;
-    min-height: 40px;
-  }
-  
-
-  .navbarBG {
-    background-color: #6eb6e6;
-  }
-
-  .buttonInTable {
-    background-color: #6eb6e6;
-    color: #fff;
-  }
-
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%; /* Make the container take up full available height */
-  }
-
-  /* Adjust font size and spacing for larger elements */
-.form-control-lg {
-  font-size: 1.25rem;
+.header {
+  background-color: #007bff;
+  color: #fff;
   padding: 1rem;
-  width: 100%;
+}
+
+.header h1 {
+  margin-bottom: 0;
+}
+
+.nav-link {
+  color: #fff;
+  font-size: 19px;
+}
+
+.nav-link:hover {
+  color: gray;
+  font-size: 19px;
+}
+
+.table {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+.footer {
+  background-color: #acc4dc;
+  flex-shrink: 0;
+  min-height: 40px;
+}
+
+
+.navbarBG {
+  background-color: #6eb6e6;
+}
+
+.buttonInTable {
+  background-color: #6eb6e6;
+  color: #fff;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.form-control-lg {
+font-size: 1.25rem;
+padding: 1rem;
+width: 100%;
 }
 
 .btn-lg {
-  font-size: 1.25rem;
-  padding: 0.75rem 2rem;
+font-size: 1.25rem;
+padding: 0.75rem 2rem;
 }
 
 .login-container form {
-  max-width: 400px; /* Adjust the width as needed */
-  width: 100%;
-  padding: 0 15px; /* Add some padding to the sides */
+max-width: 400px;
+width: 100%;
+padding: 0 15px;
 }
 
 .message-display {
-  background-color: #fbbaba;
-  padding: 10px;
-  border: 1px solid #ff7d7d;
-  border-radius: 5px;
-  margin-top: 10px;
+background-color: #fbbaba;
+padding: 10px;
+border: 1px solid #ff7d7d;
+border-radius: 5px;
+margin-top: 10px;
+text-align: center;
+}
+
+.posivite-message-display {
+background-color: #bff8b4;
+padding: 10px;
+border: 1px solid #7dff7d;
+border-radius: 5px;
+margin-top: 10px;
+text-align: center;
+}
+
+.bordered-image {
+border: 2px solid #000; 
+padding: 4px;
+}
+
+.white {
+color: #fff;
+}
+
+.custom-table {
+border-collapse: collapse;
+border-radius: 10px;
+overflow: hidden; 
+
+background-color: #f0f0f0;
+border: 1px solid #ccc; 
+width: 100%; 
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table th,
+.tdCustomTable {
+padding: 10px;
+border-bottom: 1px solid #ccc;
+background-color: #f0f0f0;
+border: 1px solid #ccc;
+}
+
+.custom-table th {
+background-color: #f0f0f0;
+font-weight: bold;
+}
+
+.custom-form {
+border-radius: 10px;
+overflow: hidden; 
+border: 2px solid #ccc; 
+box-shadow: 10px 10px 20px rgba(169, 137, 137, 0.1);
+}
+
+.custom-select {
+appearance: none;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+width: 200px;
+background-color: white;
+}
+
+.custom-select option {
+padding: 10px;
+}
+
+.custom-select option:checked {
+background-color: #3498db;
+color: white;
 }

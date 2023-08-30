@@ -23,6 +23,11 @@ export class DoctorMiscellaneousComponent implements OnInit{
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "doctor") {
+      this.router.navigate(['/']);
+      return;
+    }
   }
 
   logout() {
@@ -41,6 +46,9 @@ export class DoctorMiscellaneousComponent implements OnInit{
     
     if(this.duration == null || this.name == null || this.price == null) {
       this.message = "All fields are required!";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
       return;
     }
 
@@ -59,8 +67,10 @@ export class DoctorMiscellaneousComponent implements OnInit{
     this.doctorService.saveExamination(examination).subscribe((data: any) => {
       if(data['message']=='ok') {
         this.positiveMessage = "Request successfully sent!";
+        setTimeout(() => {
+          this.positiveMessage = "";
+        }, 2000);
       }
     });
   }
-
 }

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DoctorsController = void 0;
 const doctor_1 = __importDefault(require("../models/doctor"));
 const examination_1 = __importDefault(require("../models/examination"));
+const specialization_1 = __importDefault(require("../models/specialization"));
 const path = require('path');
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -70,7 +71,7 @@ class DoctorsController {
         };
         this.getAllExaminationsForSpecialization = (req, res) => {
             let specialization = req.body.specialization;
-            examination_1.default.find({ status: "accepted", specialization: specialization }, (err, examinations) => {
+            examination_1.default.find({ status: "accepted", "specialization.name": specialization.name }, (err, examinations) => {
                 if (err)
                     console.log(err);
                 else
@@ -146,14 +147,39 @@ class DoctorsController {
             let imagePath = req.body.imagePath;
             let licenceNumber = req.body.licenceNumber;
             let branch = req.body.branch;
-            let specialization = req.body.specialization;
-            let doctor = new doctor_1.default({ username, password, firstname, lastname, address, phoneNumber, email, imagePath, licenceNumber, branch, specialization, "examinations": [] });
-            doctor.save((err, resp) => {
-                if (err) {
-                    res.status(400).json({ "message": "error" });
+            let specializationString = req.body.specializationString;
+            specialization_1.default.find({ name: specializationString }, (err, specializationfromDB) => {
+                if (err)
+                    console.log(err);
+                else {
+                    let specialization = specializationfromDB[0];
+                    let doctor = new doctor_1.default({ username, password, firstname, lastname, address, phoneNumber, email, imagePath, licenceNumber, branch, specialization, "examinations": [] });
+                    doctor.save((err, resp) => {
+                        if (err) {
+                            res.status(400).json({ "message": "error" });
+                        }
+                        else
+                            res.json({ "message": "ok" });
+                    });
                 }
-                else
-                    res.json({ "message": "ok" });
+            });
+        };
+        this.changePassword = (req, res) => {
+            let id = req.body.id;
+            let newPassword = req.body.newPassword;
+            console.log(id);
+            console.log(newPassword);
+            doctor_1.default.findOneAndUpdate({ '_id': id }, { password: newPassword }, (err, response) => {
+                if (err)
+                    console.log(err);
+                else {
+                    doctor_1.default.findOne({ '_id': id }, (err, doctor) => {
+                        if (err)
+                            console.log(err);
+                        else
+                            res.json({ "message": "ok", "doctor": doctor });
+                    });
+                }
             });
         };
     }

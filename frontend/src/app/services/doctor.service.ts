@@ -99,11 +99,18 @@ export class DoctorService {
       imagePath: imagePath,
       licenceNumber: licenceNumber,
       branch: branch,
-      specialization: {
-        name: specialization
-      }
+      specializationString: specialization
     }
 
     return this.http.post(`${this.uri}/doctors/register`, data);
+  }
+
+  changePassword(id: string, newPassword: string){
+    const data = {
+      id: id,
+      newPassword: newPassword
+    }
+
+    return this.http.post(`${this.uri}/doctors/changePassword`, data);
   }
 }

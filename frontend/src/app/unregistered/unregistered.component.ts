@@ -15,6 +15,7 @@ export class UnregisteredComponent implements OnInit{
 
   loggedInUser: any;
   loggedInUserType: string;
+  myFiles: File[] = [];
 
   allDoctors: Doctor[];
   searchFirstname: string = "";
@@ -26,8 +27,23 @@ export class UnregisteredComponent implements OnInit{
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+    
     this.doctorsService.getAllDoctors().subscribe((data: Doctor[]) => {
       this.allDoctors = data;
+
+      this.allDoctors.forEach(doctor => {
+        
+        this.doctorsService.getImage(doctor.imagePath).subscribe((myBlob: any) => {
+          console.log(myBlob);
+          myBlob.name = 'image.myext';
+          myBlob.lastModified = new Date();
+          
+          this.myFiles[doctor.username] = new File([myBlob], 'image.myex', {
+            type: myBlob.type,
+          });
+        });
+      });
+      
     });
   }
  
@@ -71,5 +87,12 @@ export class UnregisteredComponent implements OnInit{
       this.allDoctors = data;
       console.log(this.allDoctors);
     })
+  }
+
+  getSelectedFileUrl(username: string): string | null {
+    if (this.myFiles[username]) {
+      return URL.createObjectURL(this.myFiles[username]);
+    }
+    return null;
   }
 }
