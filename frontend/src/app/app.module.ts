@@ -1,9 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatDialogModule } from '@angular/material/dialog';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,19 +22,6 @@ import { DoctorMiscellaneousComponent } from './doctor-miscellaneous/doctor-misc
 import { DoctorPatientInfoComponent } from './doctor-patient-info/doctor-patient-info.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupGenerateReportComponent } from './popup-generate-report/popup-generate-report.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule} from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input'; 
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatGridListModule} from '@angular/material/grid-list';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
 import { PopupEditPatientComponent } from './popup-edit-patient/popup-edit-patient.component';
 import { PopupDeletePatientComponent } from './popup-delete-patient/popup-delete-patient.component';
 import { ManagerDoctorsComponent } from './manager-doctors/manager-doctors.component';
@@ -91,21 +74,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatCardModule,
-    MatInputModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule
-    
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

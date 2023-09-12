@@ -37,7 +37,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%; /* Make the container take up full available height */
+    height: 100%; 
   }
 
 .form-control-lg {
@@ -52,9 +52,9 @@ main {
 }
 
 .login-container form {
-  max-width: 400px; /* Adjust the width as needed */
+  max-width: 400px; 
   width: 100%;
-  padding: 0 15px; /* Add some padding to the sides */
+  padding: 0 15px; 
 }
 
 .message-display {
@@ -75,7 +75,7 @@ main {
   width: 300px;
 }
 
-/* Add a CSS class to the container to make it a flex container with a column layout */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -135,7 +135,7 @@ main {
   height: 100%;
 }
 
-/* Adjust font size and spacing for larger elements */
+
 .form-control-lg {
 font-size: 1.25rem;
 padding: 1rem;
@@ -150,7 +150,7 @@ padding: 0.75rem 2rem;
 .login-container form {
 max-width: 500px;
 width: 100%;
-padding: 0 15px; /* Add some padding to the sides */
+padding: 0 15px; 
 }
 
 .message-display {
