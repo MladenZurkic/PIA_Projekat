@@ -28,4 +28,8 @@ patientsRouter.route('/getImage').get(
     (req, res) => new PatientsController().getImage(req, res)
 );
 
+patientsRouter.route('/changePassword').get(
+    (req, res) => new PatientsController().changePassword(req, res)
+);
+
 export default patientsRouter;

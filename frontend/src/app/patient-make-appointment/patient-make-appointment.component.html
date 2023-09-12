@@ -41,7 +41,7 @@
           <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+          <a class="nav-link active" routerLink="/manager" *ngIf='loggedInUserType === "manager"'>Patients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
@@ -50,7 +50,7 @@
           <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
         </li>
       </ul>
       <ul class="nav">
@@ -80,17 +80,17 @@
       <div class="login-container">
         <div class="form-group mb-3">
             <label style="font-size: 20px;">Examination:</label> &nbsp;
-            <select [(ngModel)]="examination">
+            <select [(ngModel)]="examination" class="custom-select">
                 <option *ngFor="let examination of doctor.examinations" [hidden]="!showExamination(examination)" [ngValue]="examination">{{examination.name}}</option>
             </select>
         </div>
         <div class="form-group mb-3">
             <label style="font-size: 20px;">Select Date:</label>  &nbsp;
-            <input type="date" id="datePicker" [(ngModel)]="selectedDate">
+            <input type="date" class="custom-date-input" id="datePicker" [(ngModel)]="selectedDate">
         </div>
         <div class="form-group mb-3">            
             <label style="font-size: 20px;">Select Time:</label>  &nbsp;
-            <input type="time" id="timePicker" [(ngModel)]="selectedTime">
+            <input type="time" class="custom-time-input" id="timePicker" [(ngModel)]="selectedTime">
         </div>
         <button class="text-center btn btn-primary" (click)="saveAppointment()">Save!</button>
         <br>

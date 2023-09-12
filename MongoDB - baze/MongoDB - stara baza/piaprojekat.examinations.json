@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d0752026"
+  },
+  "name": "Blood Test",
+  "duration": "30",
+  "price": "50",
+  "specialization": {
+    "name": "Laboratory Medicine"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d0752027"
+  },
+  "name": "X-ray",
+  "duration": "45",
+  "price": "80",
+  "specialization": {
+    "name": "Radiology"
+  },
+  "status": "accepted"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d0752028"
+  },
+  "name": "MRI Scan",
+  "duration": "60",
+  "price": "200",
+  "specialization": {
+    "name": "Radiology"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d0752029"
+  },
+  "name": "Physical Examination",
+  "duration": "20",
+  "price": "75",
+  "specialization": {
+    "name": "General Medicine"
+  },
+  "status": "accepted"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202a"
+  },
+  "name": "EKG",
+  "duration": "15",
+  "price": "60",
+  "specialization": {
+    "name": "Cardiology"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202b"
+  },
+  "name": "Ultrasound",
+  "duration": "40",
+  "price": "120",
+  "specialization": {
+    "name": "Radiology"
+  },
+  "status": "accepted"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202c"
+  },
+  "name": "Colonoscopy",
+  "duration": "120",
+  "price": "300",
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202d"
+  },
+  "name": "Pap Smear",
+  "duration": "15",
+  "price": "65",
+  "specialization": {
+    "name": "Gynecology"
+  },
+  "status": "accepted"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202e"
+  },
+  "name": "Allergy Test",
+  "duration": "90",
+  "price": "150",
+  "specialization": {
+    "name": "Allergy and Immunology"
+  },
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d65f7c0b8271d5d075202f"
+  },
+  "name": "Bone Density Scan",
+  "duration": "30",
+  "price": "90",
+  "specialization": {
+    "name": "Orthopedics"
+  },
+  "status": "accepted"
+},
+{
+  "_id": {
+    "$oid": "64e5e5d3f598f085aa6a618b"
+  },
+  "specialization": {
+    "name": "Radiology"
+  },
+  "name": "Mladen Žurkić",
+  "duration": 22,
+  "price": 2233,
+  "status": "pending",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e5e603f598f085aa6a618d"
+  },
+  "specialization": {
+    "name": "Radiology"
+  },
+  "name": "Example name",
+  "duration": 22,
+  "price": 33,
+  "status": "accepted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ed338306b114e99da7e2d1"
+  },
+  "specialization": {
+    "name": "Gynecology"
+  },
+  "name": "TEAST123",
+  "duration": 30,
+  "price": 222,
+  "status": "deleted",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ed33c6b06a438a03f6cfe0"
+  },
+  "specialization": {
+    "name": "Pediatrician"
+  },
+  "name": "TEST123333",
+  "duration": 333,
+  "price": 999999,
+  "status": "accepted",
+  "__v": 0
+}]

@@ -8,6 +8,8 @@ import { ReportService } from '../services/report.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupGenerateReportComponent } from '../popup-generate-report/popup-generate-report.component';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-doctor-patient-info',
   templateUrl: './doctor-patient-info.component.html',
@@ -28,13 +30,41 @@ export class DoctorPatientInfoComponent implements OnInit {
   loggedInUserType: string;
   loggedInUser: any;
   routeState: any;
+  initMessage: string = "";
+  initPositiveMessage: string = "";
 
   allReports: Report[];
   allPreviousAppointments: Appointment[];
 
+
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "doctor") {
+      this.router.navigate(['/']);
+      return;
+    }
+
+    if(this.patient != null) {
+      localStorage.setItem('patientInfo', JSON.stringify(this.patient));
+    }
+    else {
+      this.patient = JSON.parse(localStorage.getItem('patientInfo'));
+    }
+
+    //see message for display
+    if(localStorage.getItem('initMessage') == "cancelled") {
+      this.initMessage = "Report generation cancelled!";
+      localStorage.removeItem('initMessage');
+      setTimeout(function() { document.getElementById('initMessage').style.display = "none" }, 3000);
+    }
+
+    if(localStorage.getItem('initPositiveMessage') == "success") {
+      this.initPositiveMessage = "Report generated!";
+      localStorage.removeItem('initPositiveMessage');
+      setTimeout(function() { document.getElementById('initPositiveMessage').style.display = "none" }, 3000);
+    }
 
     this.reportService.getAllReportsForPatient(this.patient).subscribe((reports: Report[]) => {
       console.log(reports);
@@ -98,16 +128,27 @@ export class DoctorPatientInfoComponent implements OnInit {
 
   generateReport(appointment: Appointment) {
     const dialogRef = this.dialog.open(PopupGenerateReportComponent, {
-      width: '250px',
-      data: {appointment: appointment}
+      width: '500px',
+      data: appointment,
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-          console.log("RADI");
+      if (result) {
+        localStorage.setItem('initPositiveMessage', "success");
+        
+        //refresh page!
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['doctor/patientInfo']);
+        });
+
       }
       else {
-        console.log("NE RADI");
+        localStorage.setItem('initMessage', "cancelled");
+        
+        //refresh page!
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['doctor/patientInfo']);
+        });
       }
     });
   }
@@ -121,4 +162,5 @@ export class DoctorPatientInfoComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+
 }

@@ -1,0 +1,282 @@
+[{
+  "_id": {
+    "$oid": "64d28968e8bfca0d00601bd3"
+  },
+  "username": "dr1",
+  "password": "dr1",
+  "firstname": "Marko",
+  "lastname": "Markovic",
+  "address": "Adresa 1",
+  "phoneNumber": "0601234567",
+  "email": "marko.markovic@vitacare.com",
+  "imagePath": "src/uploads/doctors/default-doctor.jpg",
+  "licenceNumber": 123456,
+  "branch": "Kardioloska ordinacija",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Radiology"
+      },
+      "_id": "64e5e603f598f085aa6a618d",
+      "name": "Example name",
+      "duration": 22,
+      "price": 33,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Radiology"
+      },
+      "_id": "64d65f7c0b8271d5d0752027",
+      "name": "X-ray",
+      "duration": 45,
+      "price": 80,
+      "status": "accepted"
+    },
+    {
+      "specialization": {
+        "name": "Radiology"
+      },
+      "_id": "64d65f7c0b8271d5d075202b",
+      "name": "Ultrasound",
+      "duration": 40,
+      "price": 120,
+      "status": "accepted"
+    }
+  ],
+  "specialization": {
+    "name": "Radiology"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d28968e8bfca0d00601bd4"
+  },
+  "username": "dr2",
+  "password": "dr2",
+  "firstname": "Petar",
+  "lastname": "Petrovic",
+  "address": "Adresa 2",
+  "phoneNumber": "0601234567",
+  "email": "petar.petrovic@vitacare.com",
+  "imagePath": "src/uploads/doctors/default-doctor.jpg",
+  "licenceNumber": 123456,
+  "branch": "Kardioloska ordinacija",
+  "examinations": [
+    {
+      "name": "EKG",
+      "duration": "15",
+      "price": "60",
+      "specialization": {
+        "name": "Cardiology"
+      },
+      "status": "pending",
+      "_id": "64d65f7c0b8271d5d075202a"
+    }
+  ],
+  "specialization": {
+    "name": "Kardiolog"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d28997e8bfca0d00601bd6"
+  },
+  "username": "dr3",
+  "password": "dr3",
+  "firstname": "Ana",
+  "lastname": "Ivanovic",
+  "address": "Adresa 3",
+  "phoneNumber": "0601234567",
+  "email": "ana.ivanovic@vitacare.com",
+  "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+  "licenceNumber": 654321,
+  "branch": "Dermatology Clinic",
+  "examinations": [
+    {
+      "name": "Ultrasound",
+      "duration": "40",
+      "price": "120",
+      "specialization": {
+        "name": "Radiology"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202b"
+    },
+    {
+      "name": "Colonoscopy",
+      "duration": "120",
+      "price": "300",
+      "specialization": {
+        "name": "Gastroenterology"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202c"
+    },
+    {
+      "name": "Pap Smear",
+      "duration": "15",
+      "price": "65",
+      "specialization": {
+        "name": "Gynecology"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202d"
+    }
+  ],
+  "specialization": {
+    "name": "Dermatologist"
+  }
+},
+{
+  "_id": {
+    "$oid": "64d28997e8bfca0d00601bd7"
+  },
+  "username": "dr4",
+  "password": "dr4",
+  "firstname": "Milan",
+  "lastname": "Jovanovic",
+  "address": "Adresa 4",
+  "phoneNumber": "0601234567",
+  "email": "milan.jovanovic@vitacare.com",
+  "imagePath": "src/uploads/doctors/default-doctor-secret.png",
+  "licenceNumber": 987654,
+  "branch": "Orthopedic Clinic",
+  "examinations": [
+    {
+      "name": "Allergy Test",
+      "duration": "90",
+      "price": "150",
+      "specialization": {
+        "name": "Allergy and Immunology"
+      },
+      "status": "pending",
+      "_id": "64d65f7c0b8271d5d075202e"
+    },
+    {
+      "name": "Bone Density Scan",
+      "duration": "30",
+      "price": "90",
+      "specialization": {
+        "name": "Orthopedics"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202f"
+    },
+    {
+      "name": "Pap Smear",
+      "duration": "15",
+      "price": "65",
+      "specialization": {
+        "name": "Gynecology"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202d"
+    }
+  ],
+  "specialization": {
+    "name": "Orthopedic Surgeon"
+  }
+},
+{
+  "_id": {
+    "$oid": "64e6ae92db5b425e0eb66a90"
+  },
+  "username": "dr5",
+  "password": "dr5",
+  "firstname": "Jelena",
+  "lastname": "Nikolic",
+  "address": "Adresa 5",
+  "phoneNumber": "0601234567",
+  "email": "jelena.nikolic@vitacare.com",
+  "imagePath": "src\\uploads\\doctors\\1692839648947-535320282.png",
+  "licenceNumber": 876543,
+  "branch": "Pediatric Clinic",
+  "examinations": [
+    {
+      "name": "Pap Smear",
+      "duration": "15",
+      "price": "65",
+      "specialization": {
+        "name": "Gynecology"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202d"
+    },
+    {
+      "name": "Allergy Test",
+      "duration": "90",
+      "price": "150",
+      "specialization": {
+        "name": "Allergy and Immunology"
+      },
+      "status": "pending",
+      "_id": "64d65f7c0b8271d5d075202e"
+    },
+    {
+      "name": "Bone Density Scan",
+      "duration": "30",
+      "price": "90",
+      "specialization": {
+        "name": "Orthopedics"
+      },
+      "status": "accepted",
+      "_id": "64d65f7c0b8271d5d075202f"
+    },
+    {
+      "specialization": {
+        "name": "Pediatrician"
+      },
+      "_id": "64ed33c6b06a438a03f6cfe0",
+      "name": "TEST123333",
+      "duration": 333,
+      "price": 999999,
+      "status": "deleted",
+      "__v": 0
+    }
+  ],
+  "specialization": {
+    "name": "Pediatrician"
+  }
+},
+{
+  "_id": {
+    "$oid": "64e6ba9e6312d40b83f1480b"
+  },
+  "username": "dr6",
+  "password": "Aa1!bcde",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "Vladetina 23/2",
+  "phoneNumber": "0652281430",
+  "email": "mladen.zurkic00@gmail.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "licenceNumber": 223232,
+  "specialization": {
+    "name": "Primer4"
+  },
+  "branch": "Primer4",
+  "examinations": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ebaf1f2fba459741e565d8"
+  },
+  "username": "dr7",
+  "password": "dr7",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "Treci Oktobar 81",
+  "phoneNumber": "+381652281430",
+  "email": "mladen.zurkic0022@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\1693167391413-829497824.png",
+  "licenceNumber": 12456,
+  "specialization": {
+    "name": "Primer"
+  },
+  "branch": "Primer",
+  "examinations": [],
+  "__v": 0
+}]

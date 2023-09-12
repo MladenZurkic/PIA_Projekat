@@ -1,0 +1,70 @@
+[{
+  "_id": {
+    "$oid": "64ee611a6e689a672346dd65"
+  },
+  "name": "Gastroenterology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61206e689a672346dd69"
+  },
+  "name": "Nephrology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61256e689a672346dd6d"
+  },
+  "name": "Rheumatology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee612a6e689a672346dd71"
+  },
+  "name": "General Surgery",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61306e689a672346dd75"
+  },
+  "name": "Neurosurgery",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61356e689a672346dd79"
+  },
+  "name": "Plastic Surgery",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee613c6e689a672346dd7d"
+  },
+  "name": "Pediatric Cardiology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61406e689a672346dd81"
+  },
+  "name": "Pediatric Neurology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61536e689a672346dd85"
+  },
+  "name": "Dermatopathology",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee61586e689a672346dd89"
+  },
+  "name": "Cosmetic Dermatology",
+  "__v": 0
+}]

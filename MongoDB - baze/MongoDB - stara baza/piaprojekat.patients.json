@@ -1,0 +1,185 @@
+[{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200a"
+  },
+  "username": "user123",
+  "password": "pass@123",
+  "firstname": "John",
+  "lastname": "Doe",
+  "address": "123 Main St, City",
+  "phoneNumber": "555-1234",
+  "email": "john.doe@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200b"
+  },
+  "username": "janeSmith",
+  "password": "jane123",
+  "firstname": "Jane",
+  "lastname": "Smith",
+  "address": "456 Elm Ave, Town",
+  "phoneNumber": "555-5678",
+  "email": "jane.smith@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200c"
+  },
+  "username": "alex_87",
+  "password": "passw0rd",
+  "firstname": "Alex",
+  "lastname": "Johnson",
+  "address": "789 Oak Rd, Village",
+  "phoneNumber": "555-9876",
+  "email": "alex.johnson@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200d"
+  },
+  "username": "lisa.miller",
+  "password": "lisaPass123",
+  "firstname": "Lisa",
+  "lastname": "Miller",
+  "address": "101 Pine Ln, Suburb",
+  "phoneNumber": "555-4567",
+  "email": "lisa.miller@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200e"
+  },
+  "username": "michaelC",
+  "password": "mikePwd!23",
+  "firstname": "Michael",
+  "lastname": "Clark",
+  "address": "222 Maple St, City",
+  "phoneNumber": "555-7890",
+  "email": "michael.clark@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d075200f"
+  },
+  "username": "susanP",
+  "password": "susan1234",
+  "firstname": "Susan",
+  "lastname": "Parker",
+  "address": "333 Birch Ave, Town",
+  "phoneNumber": "555-3456",
+  "email": "susan.parker@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d0752010"
+  },
+  "username": "david_j",
+  "password": "davidPass",
+  "firstname": "David",
+  "lastname": "Jones",
+  "address": "444 Cedar Rd, Village",
+  "phoneNumber": "555-6543",
+  "email": "david.jones@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d0752011"
+  },
+  "username": "emily_sm",
+  "password": "emilyPwd567",
+  "firstname": "Emily",
+  "lastname": "Smith",
+  "address": "555 Walnut Ln, Suburb",
+  "phoneNumber": "555-8765",
+  "email": "emily.smith@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64d3af370b8271d5d0752012"
+  },
+  "username": "ryanP",
+  "password": "ryanPass!22",
+  "firstname": "Ryan",
+  "lastname": "Patterson",
+  "address": "666 Oak St, City",
+  "phoneNumber": "555-5432",
+  "email": "ryan.patterson@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "pending"
+},
+{
+  "_id": {
+    "$oid": "64d539571ee79d9f0a1a6ad4"
+  },
+  "username": "mladenzurkic",
+  "password": "Aa1!bcde",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "Treci Oktobar 81",
+  "phoneNumber": "+381652281430",
+  "email": "mladen.zurkic00@gmail.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d55073e44133df1bbc1037"
+  },
+  "username": "mladenzurkic22",
+  "password": "Aa1!bcde",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "Treci Oktobar 81",
+  "phoneNumber": "+381652281430",
+  "email": "mladen.zurkic2200@gmail.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64e66946db5b425e0eb66a8d"
+  },
+  "username": "olivia",
+  "password": "olivia5678",
+  "firstname": "Olivia",
+  "lastname": "Williams",
+  "address": "777 Maple Ave, Town",
+  "phoneNumber": "555-2345",
+  "email": "olivia.williams@example.com",
+  "imagePath": "src\\uploads\\patients\\default-patient.png",
+  "status": "approved"
+},
+{
+  "_id": {
+    "$oid": "64e693afed8bfe0b1c1ab5d2"
+  },
+  "username": "mladenzurkic111",
+  "password": "Aa1!bcde",
+  "firstname": "Mladen",
+  "lastname": "Žurkić",
+  "address": "Vladetina 23/2",
+  "phoneNumber": "0652281430",
+  "email": "mladen.zurkic002@gmail.com",
+  "imagePath": "src\\uploads\\patients\\1692832821474-367369252.png",
+  "status": "approved",
+  "__v": 0
+}]

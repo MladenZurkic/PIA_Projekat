@@ -33,4 +33,29 @@ doctorsRouter.route('/removeExaminationFromDoctor').post(
     (req, res) => new DoctorsController().removeExaminationFromDoctor(req, res)
 );
 
+doctorsRouter.route('/saveExamination').post(
+    (req, res) => new DoctorsController().saveExamination(req, res)
+);
+
+doctorsRouter.route('/uploadImage').post(
+    (req, res) => new DoctorsController().uploadImage(req, res)
+);
+
+doctorsRouter.route('/checkUsername').post(
+    (req, res) => new DoctorsController().checkUsername(req, res)
+);
+
+doctorsRouter.route('/checkEmail').post(
+    (req, res) => new DoctorsController().checkEmail(req, res)
+);
+
+doctorsRouter.route('/register').post(
+    (req, res) => new DoctorsController().register(req, res)
+);
+
+doctorsRouter.route('/changePassword').post(
+    (req, res) => new DoctorsController().changePassword(req, res)
+);
+
+
 export default doctorsRouter;

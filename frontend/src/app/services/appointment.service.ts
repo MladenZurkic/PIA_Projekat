@@ -41,6 +41,13 @@ export class AppointmentService {
     return this.http.post(`${this.uri}/appointments/cancelAppointment`, data);
   }
 
+  completeAppointment(appointment: Appointment) {
+    const data = {
+      appointment: appointment
+    }
+    return this.http.post(`${this.uri}/appointments/completeAppointment`, data);
+  }
+
   getAllReportsByPatient(patient: Patient) {
     const data = {
       patient: patient

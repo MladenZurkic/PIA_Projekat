@@ -106,6 +106,24 @@ class PatientsController {
             console.log(path.join(__dirname, '../../', imgPath));
             res.sendFile(path.join(__dirname, '../../', imgPath));
         };
+        this.changePassword = (req, res) => {
+            let id = req.body.id;
+            let newPassword = req.body.newPassword;
+            console.log(id);
+            console.log(newPassword);
+            patient_1.default.findOneAndUpdate({ '_id': id }, { password: newPassword }, (err, response) => {
+                if (err)
+                    console.log(err);
+                else {
+                    patient_1.default.findOne({ '_id': id }, (err, patient) => {
+                        if (err)
+                            console.log(err);
+                        else
+                            res.json({ "message": "ok", "patient": patient });
+                    });
+                }
+            });
+        };
     }
 }
 exports.PatientsController = PatientsController;

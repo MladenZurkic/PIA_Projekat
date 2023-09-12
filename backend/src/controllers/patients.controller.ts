@@ -102,4 +102,21 @@ export class PatientsController {
         console.log(path.join(__dirname, '../../', imgPath));
         res.sendFile(path.join(__dirname, '../../', imgPath));
     }
+
+    changePassword = (req: express.Request, res: express.Response) => {
+        let id = req.body.id;
+        let newPassword = req.body.newPassword;
+
+        console.log(id);
+        console.log(newPassword);
+        PatientModel.findOneAndUpdate({ '_id': id }, {password: newPassword}, (err, response) => {
+            if (err) console.log(err);
+            else {
+                PatientModel.findOne({ '_id': id }, (err, patient) => {
+                    if (err) console.log(err);
+                    else res.json({"message": "ok", "patient": patient});
+                });
+            }
+        });
+    }
 }

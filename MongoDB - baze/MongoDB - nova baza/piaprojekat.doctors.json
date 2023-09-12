@@ -1,0 +1,279 @@
+[{
+  "_id": {
+    "$oid": "64ee64e65e6ee71b711fbd44"
+  },
+  "username": "dr1",
+  "password": "Aa1!bcde",
+  "firstname": "Petar",
+  "lastname": "Petrovic",
+  "address": "Knez Mihailova 45",
+  "phoneNumber": "555-87425",
+  "email": "petar.petrovic@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+  "licenceNumber": 654878,
+  "specialization": {
+    "_id": {
+      "$oid": "64ee613c6e689a672346dd7d"
+    },
+    "name": "Pediatric Cardiology",
+    "__v": 0
+  },
+  "branch": "Pediatrics",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Pediatric Cardiology"
+      },
+      "_id": "64ee7b90894e74210e79fd38",
+      "name": "Pediatric Echocardiogram:",
+      "duration": 60,
+      "price": 320,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Pediatric Cardiology"
+      },
+      "_id": "64ee71e411529b4331e7d2b4",
+      "name": "Electrocardiogram (ECG or EKG)",
+      "duration": 30,
+      "price": 100,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Pediatric Cardiology"
+      },
+      "_id": "64ee7bb1894e74210e79fd3e",
+      "name": "Holter Monitor",
+      "duration": 600,
+      "price": 360,
+      "status": "accepted",
+      "__v": 0
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee65265e6ee71b711fbd49"
+  },
+  "username": "dr2",
+  "password": "Aa1!bcde",
+  "firstname": "Marko",
+  "lastname": "Marković",
+  "address": "Mikijeva 22",
+  "phoneNumber": "+38155447997",
+  "email": "marko.markovic@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+  "licenceNumber": 231231,
+  "specialization": {
+    "_id": {
+      "$oid": "64ee61586e689a672346dd89"
+    },
+    "name": "Cosmetic Dermatology",
+    "__v": 0
+  },
+  "branch": "Dermatology",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Cosmetic Dermatology"
+      },
+      "_id": "64ee729311529b4331e7d2cc",
+      "name": "Laser Hair Removal",
+      "duration": 150,
+      "price": 300,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Cosmetic Dermatology"
+      },
+      "_id": "64ee728211529b4331e7d2c6",
+      "name": "Chemical Peel",
+      "duration": 60,
+      "price": 300,
+      "status": "accepted",
+      "__v": 0
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee656d5e6ee71b711fbd4e"
+  },
+  "username": "dr3",
+  "password": "Aa1!bcde",
+  "firstname": "Mika",
+  "lastname": "Mikić",
+  "address": "Alporijeva 135",
+  "phoneNumber": "+38165123456",
+  "email": "miki.mikic@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\default-doctor-secret.png",
+  "licenceNumber": 123456,
+  "specialization": {
+    "_id": {
+      "$oid": "64ee61256e689a672346dd6d"
+    },
+    "name": "Rheumatology",
+    "__v": 0
+  },
+  "branch": "Internal Medicine",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Rheumatology"
+      },
+      "_id": "64ee7c2b894e74210e79fd56",
+      "name": "Rheumatoid Factor Test",
+      "duration": 15,
+      "price": 50,
+      "status": "deleted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Rheumatology"
+      },
+      "_id": "64ee710611529b4331e7d284",
+      "name": " Joint Aspiration (Arthrocentesis)",
+      "duration": 30,
+      "price": 200,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Rheumatology"
+      },
+      "_id": "64ee70f311529b4331e7d27e",
+      "name": "C-reactive Protein (CRP) Test",
+      "duration": 15,
+      "price": 30,
+      "status": "accepted",
+      "__v": 0
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee6d0ee0e333676c315f6d"
+  },
+  "username": "dr4",
+  "password": "Aa1!bcde",
+  "firstname": "Mile",
+  "lastname": "Miletić",
+  "address": "Hamatićeva 23",
+  "phoneNumber": "+38169852147",
+  "email": "mile.miletic@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+  "licenceNumber": 789654,
+  "specialization": {
+    "_id": {
+      "$oid": "64ee611a6e689a672346dd65"
+    },
+    "name": "Gastroenterology",
+    "__v": 0
+  },
+  "branch": "Internal Medicine",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Gastroenterology"
+      },
+      "_id": "64ee706f11529b4331e7d26c",
+      "name": "Capsule Endoscopy",
+      "duration": 180,
+      "price": 480,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Gastroenterology"
+      },
+      "_id": "64ee705911529b4331e7d263",
+      "name": "Colonoscopy",
+      "duration": 30,
+      "price": 350,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Gastroenterology"
+      },
+      "_id": "64ee7c72894e74210e79fd68",
+      "name": "Esophageal Manometry",
+      "duration": 45,
+      "price": 300,
+      "status": "accepted",
+      "__v": 0
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee6dc811529b4331e7d249"
+  },
+  "username": "dr5",
+  "password": "Aa1!bcde",
+  "firstname": "Verica",
+  "lastname": "Veritić",
+  "address": "Bul. Kralja Aleksandra 153",
+  "phoneNumber": "+38169700145",
+  "email": "verica.veritic@gmail.com",
+  "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+  "licenceNumber": 456789,
+  "specialization": {
+    "_id": {
+      "$oid": "64ee61356e689a672346dd79"
+    },
+    "name": "Plastic Surgery",
+    "__v": 0
+  },
+  "branch": "Surgery",
+  "examinations": [
+    {
+      "specialization": {
+        "name": "Plastic Surgery"
+      },
+      "_id": "64ee7c00894e74210e79fd50",
+      "name": " Dermal Filler Injection",
+      "duration": 60,
+      "price": 650,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Plastic Surgery"
+      },
+      "_id": "64ee71ad11529b4331e7d2a8",
+      "name": "Liposuction",
+      "duration": 120,
+      "price": 1900,
+      "status": "accepted",
+      "__v": 0
+    },
+    {
+      "specialization": {
+        "name": "Plastic Surgery"
+      },
+      "_id": "64ee7be5894e74210e79fd4a",
+      "name": "Rhinoplasty (Nose Job)",
+      "duration": 180,
+      "price": 3500,
+      "status": "accepted",
+      "__v": 0
+    }
+  ],
+  "__v": 0
+}]

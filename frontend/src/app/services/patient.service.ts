@@ -72,4 +72,13 @@ export class PatientService {
   getImage(path: string){
     return this.http.get(`${this.uri}/patients/getImage/?path=${path}`, { responseType: 'blob' });
   }
+
+  changePassword(id: string, newPassword: string){
+    const data = {
+      id: id,
+      newPassword: newPassword
+    }
+
+    return this.http.post(`${this.uri}/patients/changePassword`, data);
+  }
 }

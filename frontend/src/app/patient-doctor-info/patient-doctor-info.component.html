@@ -41,7 +41,7 @@
           <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+          <a class="nav-link active" routerLink="/manager" *ngIf='loggedInUserType === "manager"'>Patients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
@@ -50,7 +50,7 @@
           <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
         </li>
       </ul>
       <ul class="nav">
@@ -98,10 +98,10 @@
             <span style="font-size: 30px; font-weight: bold;">Branch: </span> <span style="font-size: 30px;"> {{doctor.branch}}</span>
           </div>
         </div>
-
-        <h2 class="text-center mt-4">Available Examinations</h2>
+        <br>
+        <h2 class="text-center mt-4">Available Examinations:</h2>
         <!-- Tabela vrste pregleda-->
-        <table class="table table-bordered">
+        <table class="table table-bordered custom-table">
           <thead>
             <tr>
               <th>Name </th>
@@ -112,9 +112,9 @@
           <tbody>
             <tr *ngFor="let examination of doctor.examinations">
 
-                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.name }}</td>
-                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.duration }}</td>
-                <td class="align-middle" *ngIf="examination.status!='pending'">{{ examination.price }}</td>
+                <td class="align-middle" *ngIf="examination.status=='accepted'">{{ examination.name }}</td>
+                <td class="align-middle" *ngIf="examination.status=='accepted'">{{ examination.duration }}</td>
+                <td class="align-middle" *ngIf="examination.status=='accepted'">{{ examination.price }}</td>
             </tr>
           </tbody>
         </table>

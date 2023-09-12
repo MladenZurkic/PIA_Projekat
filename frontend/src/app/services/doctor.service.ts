@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Doctor } from '../models/doctor';
 import { Examination } from '../models/examination';
@@ -52,5 +52,65 @@ export class DoctorService {
       examination: examination
     }
     return this.http.post(`${this.uri}/doctors/removeExaminationFromDoctor/`, data);
+  }
+
+  saveExamination(examination: any) {
+    const data = {
+      examination: examination
+    }
+    return this.http.post(`${this.uri}/doctors/saveExamination/`, data);
+  }
+
+  uploadImage(formData: FormData){
+
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'multipart/form-data');
+
+    const options = { headers: headers };
+
+    return this.http.post(`${this.uri}/doctors/uploadImage`, formData, options);
+  }
+
+  checkUsername(username: string){
+    const data = {
+      username: username
+    }
+
+    return this.http.post(`${this.uri}/doctors/checkUsername`, data);
+  }
+
+  checkEmail(email: string){
+    const data = {
+      email: email
+    }
+
+    return this.http.post(`${this.uri}/doctors/checkEmail`, data);
+  }
+
+  register(username: string, password: string, firstname: string, lastname: string, address: string, phoneNumber: string, email: string, imagePath: string, licenceNumber: number, branch: string, specialization: string){
+    const data = {
+      username: username,
+      password: password,
+      firstname: firstname,
+      lastname: lastname,
+      address: address,
+      phoneNumber: phoneNumber,
+      email: email,
+      imagePath: imagePath,
+      licenceNumber: licenceNumber,
+      branch: branch,
+      specializationString: specialization
+    }
+
+    return this.http.post(`${this.uri}/doctors/register`, data);
+  }
+
+  changePassword(id: string, newPassword: string){
+    const data = {
+      id: id,
+      newPassword: newPassword
+    }
+
+    return this.http.post(`${this.uri}/doctors/changePassword`, data);
   }
 }

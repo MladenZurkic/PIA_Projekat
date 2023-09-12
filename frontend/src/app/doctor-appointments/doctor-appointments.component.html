@@ -41,7 +41,7 @@
             <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+            <a class="nav-link active" routerLink="/manager" *ngIf='loggedInUserType === "manager"'>Patients</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
@@ -50,7 +50,7 @@
             <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+            <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
           </li>
         </ul>
         <ul class="nav">
@@ -81,7 +81,7 @@
             <div class="table-responsive mt-4">
               <h2 class="text-center mt-4">Your Future Appointments:</h2>
               <!-- Table of Doctor's Future Appointments -->
-              <table class="table table-bordered hoverClass">
+              <table class="table table-bordered custom-table">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -98,7 +98,7 @@
                       <td class="align-middle">{{appointment.date}}</td>
                       <td class="align-middle">{{appointment.time}}</td>
                       <td class="align-middle">{{appointment.branch}}</td> 
-                      <td class="align-middle">{{appointment.status}} {{appointment.patient.lastname}} {{appointment.patient.firstname}}</td>
+                      <td class="align-middle">{{appointment.patient.lastname}} {{appointment.patient.firstname}}</td>
                       <td class="align-middle text-center">
                         <button (click)="cancelAppointment(appointment)" class="btn btn-danger">Cancel</button>
                         &nbsp;

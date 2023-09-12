@@ -46,6 +46,18 @@ export class AppointmentsController {
         });
     }
 
+    completeAppointment = (req: express.Request, res: express.Response) => {
+        let appointment = req.body.appointment;
+        AppointmentsModel.findOneAndUpdate({_id: appointment._id}, {status: "completed"}, {new: true})
+        .then(response => {
+          if (response) {
+            res.json({"message": "ok"});
+          } else {
+            res.status(400).json({"message": "error"});
+          }
+        });
+    }
+
     getAllReportsByPatient = (req: express.Request, res: express.Response) => {
         let patient = req.body.patient;
         console.log(patient);

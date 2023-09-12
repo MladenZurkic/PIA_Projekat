@@ -1,32 +1,14 @@
-/* Add a CSS class to the container to make it a flex container with a column layout */
+main {
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 20px;
+    /*padding: 20px;*/
+  }
+
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Set the container's minimum height to 100% of the viewport */
-  }
-
-  .main {
-    flex: 1;
-  }
-  
-  .header {
-    background-color: #007bff;
-    color: #fff;
-    padding: 1rem;
-  }
-  
-  .header h1 {
-    margin-bottom: 0;
-  }
-  
-  .nav-link {
-    color: #fff;
-    font-size: 19px;
-  }
-  
-  .nav-link:hover {
-    color: gray;
-    font-size: 19px;
+    min-height: 100vh;
   }
 
   .table {
@@ -58,7 +40,6 @@
     height: 100%; /* Make the container take up full available height */
   }
 
-  /* Adjust font size and spacing for larger elements */
 .form-control-lg {
   font-size: 1.25rem;
   padding: 1rem;
@@ -82,12 +63,14 @@
   border: 1px solid #ff7d7d;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
 }
 
-.posivite-message-display {
-  background-color: #bff8b4;
-  padding: 10px;
-  border: 1px solid #7dff7d;
-  border-radius: 5px;
-  margin-top: 10px;
+.gray {
+  color: #6c757d;
+  background-color: lightgray;
+}
+
+.wide{
+  width: 300px;
 }

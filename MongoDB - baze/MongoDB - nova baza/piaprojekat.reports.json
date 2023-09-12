@@ -1,0 +1,160 @@
+[{
+  "_id": {
+    "$oid": "64ee828100b0a3d92aaae4cc"
+  },
+  "patient": {
+    "username": "mladenzurkic",
+    "password": "Aa1!bcde",
+    "firstname": "Mladen",
+    "lastname": "Žurkić",
+    "address": "3. Oktobar 81",
+    "phoneNumber": "+3816522547785",
+    "email": "mladen.zurkic@piaprojekat.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  },
+  "date": "2023-08-29",
+  "time": "03:19",
+  "doctor": {
+    "_id": "64ee6d0ee0e333676c315f6d",
+    "username": "dr4",
+    "password": "Aa1!bcde",
+    "firstname": "Mile",
+    "lastname": "Miletić",
+    "address": "Hamatićeva 23",
+    "phoneNumber": "+38169852147",
+    "email": "mile.miletic@gmail.com",
+    "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+    "licenceNumber": 789654,
+    "specialization": {
+      "_id": "64ee611a6e689a672346dd65",
+      "name": "Gastroenterology",
+      "__v": 0
+    },
+    "branch": "Internal Medicine",
+    "examinations": [
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee7c61894e74210e79fd62",
+        "name": " Breath Test for Helicobacter pylori",
+        "duration": 20,
+        "price": 100,
+        "status": "accepted",
+        "__v": 0
+      },
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee706f11529b4331e7d26c",
+        "name": "Capsule Endoscopy",
+        "duration": 180,
+        "price": 480,
+        "status": "accepted",
+        "__v": 0
+      },
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee705911529b4331e7d263",
+        "name": "Colonoscopy",
+        "duration": 30,
+        "price": 350,
+        "status": "accepted",
+        "__v": 0
+      }
+    ],
+    "__v": 0
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "reason": "Razlog 1",
+  "diagnosis": "Dijagnoza 1",
+  "therapy": "Terapija 1",
+  "dateOfAppointment": "2023-09-01",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ee8a5c82d388f6ec8daf7c"
+  },
+  "patient": {
+    "username": "michaelC",
+    "password": "Aa1!bcde",
+    "firstname": "Michael",
+    "lastname": "Kent",
+    "address": "222 Bernaeo Street",
+    "phoneNumber": "+381658742214",
+    "email": "michael.kent@piaprojekat.com",
+    "imagePath": "src\\uploads\\patients\\default-patient.png",
+    "status": "approved"
+  },
+  "date": "2023-08-28",
+  "time": "11:10",
+  "doctor": {
+    "_id": "64ee6d0ee0e333676c315f6d",
+    "username": "dr4",
+    "password": "Aa1!bcde",
+    "firstname": "Mile",
+    "lastname": "Miletić",
+    "address": "Hamatićeva 23",
+    "phoneNumber": "+38169852147",
+    "email": "mile.miletic@gmail.com",
+    "imagePath": "src\\uploads\\doctors\\default-doctor.jpg",
+    "licenceNumber": 789654,
+    "specialization": {
+      "_id": "64ee611a6e689a672346dd65",
+      "name": "Gastroenterology",
+      "__v": 0
+    },
+    "branch": "Internal Medicine",
+    "examinations": [
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee7c61894e74210e79fd62",
+        "name": " Breath Test for Helicobacter pylori",
+        "duration": 20,
+        "price": 100,
+        "status": "accepted",
+        "__v": 0
+      },
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee706f11529b4331e7d26c",
+        "name": "Capsule Endoscopy",
+        "duration": 180,
+        "price": 480,
+        "status": "accepted",
+        "__v": 0
+      },
+      {
+        "specialization": {
+          "name": "Gastroenterology"
+        },
+        "_id": "64ee705911529b4331e7d263",
+        "name": "Colonoscopy",
+        "duration": 30,
+        "price": 350,
+        "status": "accepted",
+        "__v": 0
+      }
+    ],
+    "__v": 0
+  },
+  "specialization": {
+    "name": "Gastroenterology"
+  },
+  "reason": "Razlog 2",
+  "diagnosis": "Dijagnoza 2",
+  "therapy": "Terapija 2",
+  "dateOfAppointment": "2023-10-01",
+  "__v": 0
+}]

@@ -27,6 +27,11 @@ export class PatientAppointmentsComponent implements OnInit {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
 
+    if(this.loggedInUserType == "none" || this.loggedInUserType != "patient") {
+      this.router.navigate(['/']);
+      return;
+    }
+
     this.appointmentService.getAllAppointmentsByPatient(this.loggedInUser).subscribe((appointments: Appointment[]) => { 
       this.allAppointments = appointments;
       this.allAppointments.sort((a, b) => {

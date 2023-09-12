@@ -18,6 +18,11 @@ export class RegisterComponent implements OnInit{
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(localStorage.getItem('loggedInUser')) ? JSON.parse(localStorage.getItem('loggedInUser')) : "";
     this.loggedInUserType = localStorage.getItem('loggedInUserType') ? localStorage.getItem('loggedInUserType') : "none";
+
+    if(this.loggedInUserType != "none") {
+      this.router.navigate(['/']);
+      return;
+    }
   }
 
   
@@ -52,36 +57,62 @@ export class RegisterComponent implements OnInit{
   register(){
     this.message = "";
     this.positiveMessage = "";
+
+    if(this.username == "" || this.password == "" || this.confirmPassword == "" || this.firstname == "" || this.lastname == "" || this.address == "" || this.phoneNumber == "" || this.email == ""){
+      this.message = "All fields are required!";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
+      return;
+    }
     
     if(this.password != this.confirmPassword){
       this.message = "Passwords do not match!";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
       return;
     }
     if(this.passwordPattern.test(this.password) == false){
       this.message = "Password must be 8-14 characters long, contain at least one uppercase letter, one number, and one special character and cannot contain repeating characters one after another";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
       return;
     }
 
     if(this.emailPattern.test(this.email) == false){
       this.message = "Invalid email!";
+      setTimeout(() => {
+        this.message = "";
+      }, 2000);
       return;
     }
 
     this.patientService.checkUsername(this.username).subscribe((patient: Patient) => {
       if(patient!=null){
         this.message = "Username already exists";
+        setTimeout(() => {
+          this.message = "";
+        }, 2000);
         return;
       }
       else {
         this.patientService.checkEmail(this.email).subscribe((patient: Patient) => {
         if(patient!=null) {
           this.message = "Email already exists";
+          setTimeout(() => {
+            this.message = "";
+          }, 2000);
           return;
         }
         else {
           if(this.selectedFile) {
             if (!this.selectedFile.type.startsWith('image/') || !this.selectedFile.type.includes('jpeg') && !this.selectedFile.type.includes('png')) {
               this.message = 'Selected file is not an JPG/PNG image.';
+              setTimeout(() => {
+                this.message = "";
+              }, 2000);
               return;
             }
 
@@ -105,11 +136,17 @@ export class RegisterComponent implements OnInit{
                           if(res2['message'] == 'ok') {
                         console.log(res2['message']);
                         this.positiveMessage = "Registration successful!";
+                        setTimeout(() => {
+                          this.positiveMessage = "";
+                        }, 2000);
                         return;
                       }
                       else {
                         console.log(res2['message']);
                         this.message = "Registration failed!";
+                        setTimeout(() => {
+                          this.message = "";
+                        }, 2000);
                         return;
                       }
                     });
@@ -117,6 +154,9 @@ export class RegisterComponent implements OnInit{
                 });
               } else {
                 this.message = 'Image size is not within the specified range (100x100px - 300x300px)';
+                setTimeout(() => {
+                  this.message = "";
+                }, 2000);
                 return;
               }
             };
@@ -129,11 +169,17 @@ export class RegisterComponent implements OnInit{
                   if(res2['message'] == 'ok') {
                 console.log(res2['message']);
                 this.positiveMessage = "Registration successful!";
+                setTimeout(() => {
+                  this.positiveMessage = "";
+                }, 2000);
                 return;
               }
               else {
                 console.log(res2['message']);
                 this.message = "Registration failed!";
+                setTimeout(() => {
+                  this.message = "";
+                }, 2000);
                 return;
               }
             });

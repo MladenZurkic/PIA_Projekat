@@ -22,4 +22,12 @@ export class ReportService {
     return this.http.post(`${this.uri}/reports/getAllReportsForPatient`, data);
   }
 
+
+  saveReport(report: any) {
+    const data = {
+      report: report
+    }
+
+    return this.http.post(`${this.uri}/reports/saveReport`, data);
+  }
 }

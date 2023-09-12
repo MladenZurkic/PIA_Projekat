@@ -50,6 +50,18 @@ class AppointmentsController {
                 }
             });
         };
+        this.completeAppointment = (req, res) => {
+            let appointment = req.body.appointment;
+            appointment_1.default.findOneAndUpdate({ _id: appointment._id }, { status: "completed" }, { new: true })
+                .then(response => {
+                if (response) {
+                    res.json({ "message": "ok" });
+                }
+                else {
+                    res.status(400).json({ "message": "error" });
+                }
+            });
+        };
         this.getAllReportsByPatient = (req, res) => {
             let patient = req.body.patient;
             console.log(patient);

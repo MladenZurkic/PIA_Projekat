@@ -1,12 +1,28 @@
 import express from 'express';
-import DoctorsModel from '../models/doctor'
+import DoctorModel from '../models/doctor'
 import ExaminationModel from '../models/examination'
+import SpecializationModel from '../models/specialization'
 const path = require('path');
+const multer = require('multer');
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, 'src/uploads/doctors');
+    },
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, uniqueSuffix + path.extname(file.originalname));
+    },
+  });
+  
+  const upload = multer({ storage: storage, limits: { fieldSize: 10 * 1024 * 1024 } });
+
 
 export class DoctorsController {
 
     getAllDoctors = (req: express.Request, res: express.Response) => {
-        DoctorsModel.find({}, (err, doctors) => {
+        DoctorModel.find({}, (err, doctors) => {
             if (err) console.log(err);
             else res.json(doctors);
         })
@@ -19,7 +35,7 @@ export class DoctorsController {
         let branch = req.body.branch;
 
 
-        DoctorsModel.find({
+        DoctorModel.find({
             'firstname': { $regex: firstname, $options: 'i' },
             'lastname': { $regex: lastname, $options: 'i' },
             'specialization.name': { $regex: specialization, $options: 'i' },
@@ -33,7 +49,7 @@ export class DoctorsController {
     getDoctorByUsername = (req: express.Request, res: express.Response) => {
         let doctorUsername = req.body.doctorUsername;
 
-        DoctorsModel.findOne({ 'username': doctorUsername }, (err, doctor) => {
+        DoctorModel.findOne({ 'username': doctorUsername }, (err, doctor) => {
             if (err) console.log(err);
             else res.json(doctor);
         })
@@ -48,7 +64,7 @@ export class DoctorsController {
     getAllExaminationsForSpecialization = (req: express.Request, res: express.Response) => {
         let specialization = req.body.specialization;
 
-        ExaminationModel.find({status: "accepted", specialization: specialization}, (err, examinations) => {
+        ExaminationModel.find({status: "accepted", "specialization.name": specialization.name}, (err, examinations) => {
             if (err) console.log(err);
             else res.json(examinations);
         })
@@ -58,7 +74,7 @@ export class DoctorsController {
         let doctor = req.body.doctor;
         let examination = req.body.examination;
 
-        DoctorsModel.findOneAndUpdate({username: doctor.username}, {$push: {examinations: examination}}, (err, doctor) => {
+        DoctorModel.findOneAndUpdate({username: doctor.username}, {$push: {examinations: examination}}, (err, doctor) => {
             if (err) console.log(err);
             else res.json(doctor);
         })
@@ -68,10 +84,95 @@ export class DoctorsController {
         let doctor = req.body.doctor;
         let examination = req.body.examination;
 
-        DoctorsModel.findOneAndUpdate({username: doctor.username}, {$pull: {examinations: examination}}, (err, doctor) => {
+        DoctorModel.findOneAndUpdate({username: doctor.username}, {$pull: {examinations: examination}}, (err, doctor) => {
             if (err) console.log(err);
             else res.json(doctor);
         })
     }
 
+    saveExamination = (req: express.Request, res: express.Response) => {
+        let examination = new ExaminationModel(req.body.examination);
+        examination.save((err, resp)=>{
+            if(err) {
+                res.status(400).json({"message": "error"})
+            }
+            else res.json({"message": "ok"})
+        });
+    }
+
+    uploadImage = (req: express.Request, res: express.Response) => {
+        
+        upload.single('profilePicture')(req, res, async (err) => {
+
+            if (err) {
+                console.log(err);
+              return res.json({ message: "Image upload failed." });
+            }
+
+            return res.json({ message: "Image uploaded successfully.",
+            imagePath: req.file.path});
+        });
+    }
+
+    checkUsername = (req: express.Request, res: express.Response) => { 
+        let username = req.body.username;
+        DoctorModel.findOne({ 'username': username }, (err, doctor) => {
+            if (err) console.log(err);
+            else res.json(doctor);
+        })
+    }
+
+    checkEmail = (req: express.Request, res: express.Response) => { 
+        let email = req.body.email;
+        DoctorModel.findOne({ 'email': email }, (err, doctor) => {
+            if (err) console.log(err);
+            else res.json(doctor);
+        })
+    }
+
+    register = (req: express.Request, res: express.Response) => {
+    
+        let username = req.body.username;
+        let password = req.body.password;
+        let firstname = req.body.firstname;
+        let lastname = req.body.lastname;
+        let address = req.body.address;
+        let phoneNumber = req.body.phoneNumber;
+        let email = req.body.email;
+        let imagePath = req.body.imagePath;
+        let licenceNumber = req.body.licenceNumber;
+        let branch = req.body.branch;
+        let specializationString = req.body.specializationString;
+
+        SpecializationModel.find({name: specializationString}, (err, specializationfromDB) => {
+            if (err) console.log(err);
+            else {
+                let specialization = specializationfromDB[0];
+                let doctor = new DoctorModel({username, password, firstname, lastname, address, phoneNumber, email, imagePath, licenceNumber, branch, specialization, "examinations": []});
+                doctor.save((err, resp)=>{
+                    if(err) {
+                        res.status(400).json({"message": "error"})
+                    }
+                    else res.json({"message": "ok"})
+                });
+            }
+        })
+    }
+
+    changePassword = (req: express.Request, res: express.Response) => {
+        let id = req.body.id;
+        let newPassword = req.body.newPassword;
+
+        console.log(id);
+        console.log(newPassword);
+        DoctorModel.findOneAndUpdate({ '_id': id }, {password: newPassword}, (err, response) => {
+            if (err) console.log(err);
+            else {
+                DoctorModel.findOne({ '_id': id }, (err, doctor) => {
+                    if (err) console.log(err);
+                    else res.json({"message": "ok", "doctor": doctor});
+                });
+            }
+        });
+    }
 }

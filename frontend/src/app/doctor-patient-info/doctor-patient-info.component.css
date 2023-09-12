@@ -82,6 +82,7 @@
   border: 1px solid #ff7d7d;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .posivite-message-display {
@@ -90,6 +91,7 @@
   border: 1px solid #7dff7d;
   border-radius: 5px;
   margin-top: 10px;
+  text-align: center;
 }
 
 .bordered-image {
@@ -99,4 +101,25 @@
 
 .white {
   color: #fff;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden; 
+
+  border: 1px solid #ccc; 
+  width: 100%; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.custom-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
 }

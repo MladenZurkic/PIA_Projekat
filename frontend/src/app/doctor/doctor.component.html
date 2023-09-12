@@ -41,7 +41,7 @@
           <a class="nav-link" routerLink="/" *ngIf='loggedInUserType === "manager"'>Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/manager/patients" *ngIf='loggedInUserType === "manager"'>Patients</a>
+          <a class="nav-link active" routerLink="/manager" *ngIf='loggedInUserType === "manager"'>Patients</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/manager/doctors" *ngIf='loggedInUserType === "manager"'>Doctors</a>
@@ -50,7 +50,7 @@
           <a class="nav-link" routerLink="/manager/requests" *ngIf='loggedInUserType === "manager"'>Requests</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/manager/appointments" *ngIf='loggedInUserType === "manager"'>Specializations and Appointments</a>
+          <a class="nav-link" routerLink="/manager/examinations" *ngIf='loggedInUserType === "manager"'>Specializations and Examinations</a>
         </li>
       </ul>
       <ul class="nav">
@@ -112,7 +112,7 @@
 
           <div class="table-responsive mt-4">
             <!-- Table of Possible Examinations -->
-            <table class="table table-bordered">
+            <table class="table table-bordered custom-table">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -135,7 +135,7 @@
 
             <h2 class="text-center mt-4">Your Examinations:</h2>
             <!-- Table of Doctor's Examinations -->
-            <table class="table table-bordered">
+            <table class="table table-bordered custom-table">
               <thead>
                 <tr>
                   <th>Name</th>
